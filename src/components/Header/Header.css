@@ -55,9 +55,8 @@
   list-style: none;
 }
 
-.header__signup {
+.header__link-signup {
   margin: 0;
-  /* padding-right: 30px; */
   color: #000;
   font-family: inherit;
   font-size: 12px;
@@ -68,7 +67,7 @@
   transition: opacity .4s;
 }
 
-.header__signin {
+.header__link-signin {
   width: 76px;
   height: 32px;
   margin: 0;

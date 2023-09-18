@@ -29,12 +29,8 @@ function Header(props) {
       return (
         <nav>
           <ul className='header__link-container'>
-            <li>
-              <Link className='header__signup' to={'/signup'}>Регистрация</Link>
-            </li>
-            <li>
-              <Link className='header__signin' to={'/signin'}>Войти</Link>
-            </li>
+            <li><Link className='header__link-signup' to='/signup'>Регистрация</Link></li>
+            <li><Link className='header__link-signin' to='/signin'>Войти</Link></li>
           </ul>
         </nav>
       )
