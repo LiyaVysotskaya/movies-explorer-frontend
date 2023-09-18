@@ -46,9 +46,9 @@
 }
 
 .about__time {
-  width: fit-content;
+  width: inherit;
   margin: 0;
-  padding: 0;
+  padding: 9px 0;
   color: #000;
   text-align: center;
   font-family: inherit;
@@ -62,4 +62,17 @@
 .about__time-dark {
   color: #FFF;
   background-color: #000;
+}
+
+.about__stage {
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  color: #A0A0A0;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
 }
