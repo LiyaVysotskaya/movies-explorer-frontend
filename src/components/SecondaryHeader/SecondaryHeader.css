@@ -1,14 +1,15 @@
 .secondary-header {
   max-width: calc(1280px-(70px*2));
-  width: 100%;
   min-height: 40px;
-  margin-top: 110px;
+  margin: 110px 70px 0 70px;
   display: flex;
   align-items: flex-start;
   border-bottom: 1px solid #000;
 }
 
 .secondary-header__title {
+  margin: 0 0 23px 0;
+  padding: 0;
   color: #000;
   font-family: inherit;
   font-size: 22px;
