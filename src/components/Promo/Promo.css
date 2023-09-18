@@ -4,4 +4,33 @@
   padding: 0;
   display: flex;
   background-color: #F3C1F8;
+  align-items: center;
+  position: relative;
+}
+
+.promo__title {
+  width: 730px;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  z-index: 2;
+  position: absolute;
+  top: 184px;
+  left: 275px;
+}
+
+.promo__logo {
+  width: 320px;
+  height: 320px;
+  z-index: 1;
+  position: absolute;
+  top: 82px;
+  left: 480px;
 }

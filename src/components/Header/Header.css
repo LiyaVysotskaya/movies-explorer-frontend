@@ -47,21 +47,6 @@
   }
 } */
 
-/* .header__link-container {
-  max-width: fit-content;
-  width: fit-content;
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  width: 183px;
-  max-height: auto;
-  padding: 21px 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-} */
-
 .header__link-container {
   width: 183px;
   margin: 0;
