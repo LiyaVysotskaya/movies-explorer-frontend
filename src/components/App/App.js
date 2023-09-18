@@ -5,6 +5,7 @@ import Main from '../Main/Main';
 
 import logo from '../../images/logo.svg';
 import './App.css';
+import Footer from '../Footer/Footer';
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -22,6 +23,7 @@ function App() {
     <div className="page__container">
       <Header loggedIn={loggedIn} handleLogout={handleLogout} />
       <Main></Main>
+      <Footer></Footer>
     </div>
   );
 }
