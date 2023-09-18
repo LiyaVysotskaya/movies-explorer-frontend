@@ -1,13 +1,11 @@
 import React from "react";
 import './AboutProject.css';
-import SecondaryHeader from "../SecondaryHeader/SecondaryHeader";
 import Content from "../Content/Content";
 
 function AboutProject() {
   return (
     <section className="about">
-      <SecondaryHeader title='О проекте'></SecondaryHeader>
-      <Content>
+      <Content title='О проекте'>
         <div className="about__container-description">
           <h3 className="about__text">Дипломный проект включал 5 этапов</h3>
           <h3 className="about__text">На выполнение диплома ушло 5 недель</h3>
