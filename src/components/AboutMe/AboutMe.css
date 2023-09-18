@@ -1,6 +1,7 @@
 .student {
   margin: 0 auto;
   box-sizing: border-box;
+  position: relative;
 }
 
 .student__text {
@@ -27,7 +28,8 @@
 }
 
 .student__description {
-  margin: 26px 0 0 0;
+  width: 600px;
+  margin: 26px 0 99px 0;
   padding: 0;
   color: #000;
   font-family: inherit;
@@ -38,7 +40,7 @@
 }
 
 .student__link-github {
-  margin: 99px 0 0 0;
+  margin: 0;
   padding: 0;
   color: #000;
   font-family: inherit;
@@ -47,4 +49,15 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+}
+
+.student__photo {
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  position: absolute;
+  top: 227px;
+  right: 70px;
 }

@@ -17,7 +17,7 @@ function AboutMe() {
           После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
         </p>
         <Link className='student__link-github' to='#'>Github</Link>
-        {/* <img className="student__photo" alt="Фотография студента" src={photo}></img> */}
+        <img className="student__photo" alt="Фотография студента" src={photo}></img>
       </Content>
     </section>
   )
