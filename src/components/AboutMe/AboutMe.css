@@ -1,0 +1,50 @@
+.student {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.student__text {
+  margin: 66px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+
+.student__introducing {
+  margin: 18px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.student__description {
+  margin: 26px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.student__link-github {
+  margin: 99px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
