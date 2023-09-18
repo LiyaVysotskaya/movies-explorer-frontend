@@ -1,6 +1,6 @@
 .header {
-  max-width: 1280px;
-  width: auto;
+  max-width: calc(1280px-(70px*2));
+  width: 100%;
   height: 74px;
   margin: 0;
   padding: 0 70px;
@@ -8,13 +8,12 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  box-sizing: border-box;
   border: none;
 }
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 1023px) {
   .header {
-    min-height: 56px;
-    padding-top: 0;
-    position: relative;
+    padding: 0 30px;
   }
 }
 
@@ -31,8 +30,7 @@
 } */
 
 .header__link-logo {
-  max-width: 38px;
-  max-height: 38px;
+  max-width: fit-content;
   padding: 0;
   margin: 18px 0;
   transition: opacity .4s;
@@ -61,7 +59,7 @@
   margin: 0;
   /* padding-right: 30px; */
   color: #000;
-  font-family: Inter;
+  font-family: inherit;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -80,7 +78,7 @@
   border-radius: 3px;
   background-color: #000;
   color: #FFF;
-  font-family: Inter;
+  font-family: inherit;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;

@@ -28,7 +28,7 @@
 
 .navtab__link {
   color: #FFF;
-  font-family: Inter;
+  font-family: inherit;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;

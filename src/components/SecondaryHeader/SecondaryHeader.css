@@ -1,0 +1,19 @@
+.secondary-header {
+  max-width: calc(1280px-(70px*2));
+  width: 100%;
+  min-height: 40px;
+  margin-top: 110px;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #000;
+}
+
+.secondary-header__title {
+  color: #000;
+  font-family: inherit;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+}
