@@ -3,6 +3,7 @@ import './Main.css';
 import Promo from '../Promo/Promo';
 import NavTab from '../NavTab/NavTab';
 import AboutProject from '../AboutProject/AboutProject';
+import Techs from '../Techs/Techs';
 
 function Main(props) {
   return (
@@ -10,6 +11,7 @@ function Main(props) {
       <Promo></Promo>
       <NavTab></NavTab>
       <AboutProject></AboutProject>
+      <Techs></Techs>
     </main>
   )
 }

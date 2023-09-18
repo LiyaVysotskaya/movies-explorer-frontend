@@ -1,8 +1,8 @@
 .content {
   max-width: calc(1280px - (70px*2));
-  margin: 110px 70px;
+  padding: 110px 70px;
 }
 
-.content__techs {
-  margin: 0 70px 100px 70px;
+.content_techs {
+  padding: 100px 70px;
 }
