@@ -13,8 +13,9 @@
 }
 
 .page__container {
-  width: 1280px;
+  max-width: 1280px;
   min-width: 320px;
+  width: 100%;
   min-height: 100vh;
   height: 100%;
   margin: 0 auto;
