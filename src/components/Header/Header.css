@@ -50,7 +50,7 @@
   }
 } */
 
-.header__link-container {
+/* .header__link-container {
   width: 183px;
   margin: 0;
   padding-top: 21px;
@@ -90,7 +90,7 @@
   text-align: center;
   text-decoration: none;
   transition: opacity .4s;
-}
+} */
 
 .header__link-action_menu {
   margin: 18px 0 0 0;

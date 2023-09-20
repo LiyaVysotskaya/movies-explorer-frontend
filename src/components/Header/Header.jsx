@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import logo from '../../images/logo.svg';
 import './Header.css';
+import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
   const [isMenuOpen, setMenuOpen] = React.useState(false);
@@ -22,19 +23,19 @@ function Header(props) {
       : <button className='header__menu-button header__menu-button_open' onClick={openMenu}></button>
   }
 
-  function getContent() {
-    if (props.loggedIn) {
-      return <></>
-    } else {
-      return (
-        <nav>
-          <ul className='header__link-container'>
-            <li><Link className='header__link-signup' to='/signup'>Регистрация</Link></li>
-            <li><Link className='header__link-signin' to='/signin'>Войти</Link></li>
-          </ul>
-        </nav>
-      )
-    }
+  // function getContent() {
+  //   if (props.loggedIn) {
+  //     return <></>
+  //   } else {
+  //     return (
+  //       <nav>
+  //         <ul className='header__link-container'>
+  //           <li><Link className='header__link-signup' to='/signup'>Регистрация</Link></li>
+  //           <li><Link className='header__link-signin' to='/signin'>Войти</Link></li>
+  //         </ul>
+  //       </nav>
+  //     )
+  //   }
     // if (props.loggedIn) {
     //   const userEmail = localStorage.getItem('useremail');
     //   return <>
@@ -48,7 +49,7 @@ function Header(props) {
     //     ? <Link className='header__link-action header__link-action_bright' to='/sign-in'>Регистрация</Link>
     //     : <Link className='header__link-action header__link-action_bright' to='/sign-up'>Войти</Link>
     //   }
-  }
+    // }
 
   return (
     <header className={`header ${isMenuOpen && props.loggedIn && 'header_colomn'}`}>
@@ -56,7 +57,7 @@ function Header(props) {
         <Link className='header__link-logo' to='/' ><img className="header__logo" src={logo} alt="Логотип диплома" /></Link>
         {props.loggedIn && getMenu()}
       </div>
-      {getContent()}
+      <Navigation loggedIn={props.loggedIn} />
     </header>
   );
 }
