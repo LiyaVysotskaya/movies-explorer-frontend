@@ -11,11 +11,16 @@
   box-sizing: border-box;
   border: none;
 }
-@media screen and (max-width: 1023px) {
-  .header {
-    padding: 0 30px;
+  @media screen and (max-width: 1023px) {
+    .header {
+      padding: 0 30px;
+    }
   }
-}
+  @media screen and (max-width: 767px) {
+    .header {
+      padding: 0 14px;
+    }
+  }
 
 .header__container {
   width: 100%;
