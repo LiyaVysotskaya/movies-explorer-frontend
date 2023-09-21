@@ -8,11 +8,13 @@ function Navigation(props) {
     return (
       <nav className="navigation">
         <ul className="navigation__list">
-          <li><Link className="navigation__link" to='#'>Фильмы</Link></li>
-          <li><Link className="navigation__link" to='#'>Сохранённые фильмы</Link></li>
+          <div className="navigation__film">
+            <li><Link className="navigation__link" to='#'>Фильмы</Link></li>
+            <li><Link className="navigation__link" to='#'>Сохранённые фильмы</Link></li>
+          </div>
           <li>
-            <Link className="navigation__link" to='#'>Аккаунт
-              <img className="navigation__logo-account" alt="Ссылка на личный кабинет" src={accountLogo} />
+            <Link className="navigation__link navigation__link_account" to='#'>Аккаунт
+              <div className="navigation__logo-account"></div>
             </Link>
           </li>
         </ul>
@@ -22,8 +24,8 @@ function Navigation(props) {
     return (
       <nav className="navigation">
         <ul className='navigation__unauthorized'>
-          <li><Link className='navigation__link-signup' to='/signup'>Регистрация</Link></li>
-          <li><Link className='navigation__link-signin' to='/signin'>Войти</Link></li>
+          <li><Link className='navigation__link navigation__link_signup' to='/signup'>Регистрация</Link></li>
+          <li><Link className='navigation__link navigation__link_signin' to='/signin'>Войти</Link></li>
         </ul>
       </nav>
     )
