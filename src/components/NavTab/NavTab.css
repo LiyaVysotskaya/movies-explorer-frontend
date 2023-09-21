@@ -1,5 +1,6 @@
 .navtab__basement {
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   height: 66px;
   display: flex;
   background: #000;
