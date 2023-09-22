@@ -8,6 +8,12 @@
       padding: 90px 50px;
     }
   }
+  @media screen and (max-width: 767px) {
+    .content {
+      width: calc(320px - (18px*2));
+      padding: 70px 18px;
+    }
+  }
 
 .content_techs {
   padding: 100px 70px;
@@ -15,5 +21,10 @@
   @media screen and (max-width: 1023px) {
     .content_techs {
       padding: 90px 50px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .content_techs {
+      padding: 70px 18px;
     }
   }

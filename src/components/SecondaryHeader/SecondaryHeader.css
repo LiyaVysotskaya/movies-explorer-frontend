@@ -1,5 +1,6 @@
 .secondary-header {
-  width: calc(1280px - (70px*2));
+  max-width: calc(1280px - (70px*2));
+  width: 100%;
   min-height: 40px;
   margin: 0 auto;
   display: flex;
@@ -9,6 +10,11 @@
   @media screen and (max-width: 1023px) {
     .secondary-header {
       width: calc(768px - (50px*2));
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .secondary-header {
+      width: calc(320px - (18px*2));
     }
   }
 
@@ -23,8 +29,10 @@
   line-height: normal;
   letter-spacing: -0.88px;
 }
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 767px) {
     .secondary-header__title {
-
+      margin-bottom: 28px;
+      font-size: 18px;
+      letter-spacing: -0.72px;
     }
   }

@@ -24,7 +24,7 @@
 
 .header__container {
   width: 100%;
-  height: auto;
+  height: inherit;
   display: flex;
   justify-content: space-between;
 }

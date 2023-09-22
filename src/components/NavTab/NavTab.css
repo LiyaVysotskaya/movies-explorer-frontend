@@ -1,14 +1,16 @@
 .navtab__basement {
   max-width: 1280px;
   width: 100%;
-  height: 66px;
+  min-height: 66px;
+  height: 100%;
   display: flex;
   background: #000;
   justify-content: center;
+  align-items: center;
 }
 
 .navtab__links-list {
-  margin: 24px 0;
+  margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
@@ -35,6 +37,7 @@
   font-weight: 500;
   line-height: 16px;
   text-decoration-line: underline;
+  text-align: center;
 }
   @media screen and (max-width: 767px) {
     .navtab__link {
