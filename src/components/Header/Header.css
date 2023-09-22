@@ -28,11 +28,6 @@
   display: flex;
   justify-content: space-between;
 }
-/* @media screen and (max-width: 915px) {
-  .header__container {
-    margin-bottom: 31px;
-  }
-} */
 
 .header__link-logo {
   max-width: fit-content;
@@ -44,53 +39,6 @@
     opacity: 0.7;
     cursor: pointer;
   }
-/* @media screen and (max-width: 915px) {
-  .header__link-logo {
-    margin: 34px 30px 0 12px;
-  }
-} */
-
-/* .header__link-container {
-  width: 183px;
-  margin: 0;
-  padding-top: 21px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-
-.header__link-signup {
-  margin: 0;
-  color: #000;
-  font-family: inherit;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
-  text-decoration: none;
-  transition: opacity .4s;
-}
-
-.header__link-signin {
-  width: 76px;
-  height: 32px;
-  margin: 0;
-  padding: 8px;
-  display: block;
-  box-sizing: border-box;
-  border-radius: 3px;
-  background-color: #000;
-  color: #FFF;
-  font-family: inherit;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 16px;
-  text-align: center;
-  text-decoration: none;
-  transition: opacity .4s;
-} */
 
 .header__link-action_menu {
   margin: 18px 0 0 0;
@@ -103,7 +51,7 @@
   box-sizing: border-box;
   align-items: center;
 }
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 1023px) {
   .header__login-container {
     width: 100%;
     display: none;
@@ -126,12 +74,6 @@
     opacity: 0.7;
     cursor: pointer;
   }
-@media screen and (max-width: 915px) {
-  .header__logo {
-    max-width: 104px;
-    padding-left: 27px;
-  }
-}
 
 .header__menu-button {
   padding: 0;
@@ -146,7 +88,7 @@
     opacity: 0.8;
     cursor: pointer;
   }
-@media screen and (min-width: 915px) {
+@media screen and (min-width: 1023px) {
   .header__menu-button {
     display: none;
   }
@@ -163,13 +105,12 @@
   width: 44px;
   height: 44px;
   background-image: url(../../images/menu-icon.svg);
-  /* background-size: 24px 18px; */
 }
 
 .header_colomn {
   flex-direction: row;
 }
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 1023px) {
   .header_colomn {
     flex-direction: column-reverse;
   }

@@ -10,9 +10,9 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <div className="page__container">
-      <Header loggedIn={true} />
-      {/* <Main></Main>
-      <Footer></Footer> */}
+      <Header loggedIn={false} />
+      <Main></Main>
+      {/* <Footer></Footer> */}
     </div>
   );
 }

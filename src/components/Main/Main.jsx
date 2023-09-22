@@ -11,11 +11,11 @@ function Main(props) {
   return (
     <main className='main' >
       <Promo></Promo>
-      <NavTab></NavTab>
+      {/* <NavTab></NavTab>
       <AboutProject></AboutProject>
       <Techs></Techs>
       <AboutMe></AboutMe>
-      <Portfolio></Portfolio>
+      <Portfolio></Portfolio> */}
     </main>
   )
 }

@@ -1,11 +1,31 @@
 .promo {
+  max-width: 1280px;
+  width: 100%;
   min-height: 524px;
-  margin: 0;
+  height: 100%;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   background-color: #F3C1F8;
-  align-items: center;
+}
+@media screen and (max-width: 1023px) {
+  .promo {
+    height: 784px;
+  }
+}
+
+.promo__container {
+  max-width: 730px;
+  width: 100%;
+  height: 320px;
+  margin: 82px auto;
+  display: flex;
   position: relative;
+}
+@media screen and (max-width: 1023px) {
+  .promo__container {
+    margin: 224px auto;
+  }
 }
 
 .promo__title {
@@ -22,8 +42,8 @@
   letter-spacing: -2px;
   z-index: 2;
   position: absolute;
-  top: 184px;
-  left: 275px;
+  top: 102px;
+  left: 0;
 }
 
 .promo__logo {
@@ -31,6 +51,6 @@
   height: 320px;
   z-index: 1;
   position: absolute;
-  top: 82px;
-  left: 480px;
+  top: 0;
+  left: 205px;
 }
