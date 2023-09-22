@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Navigation.css';
-import accountLogo from '../../images/account-logo.svg';
 
 function Navigation(props) {
   if (props.loggedIn) {

@@ -2,7 +2,18 @@
   max-width: calc(1280px - (70px*2));
   padding: 110px 70px;
 }
+  @media screen and (max-width: 1023px) {
+    .content {
+      width: calc(768px - (50px*2));
+      padding: 90px 50px;
+    }
+  }
 
 .content_techs {
   padding: 100px 70px;
 }
+  @media screen and (max-width: 1023px) {
+    .content_techs {
+      padding: 90px 50px;
+    }
+  }

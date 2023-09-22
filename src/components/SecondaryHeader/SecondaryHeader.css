@@ -6,6 +6,11 @@
   align-items: flex-start;
   border-bottom: 1px solid #000;
 }
+  @media screen and (max-width: 1023px) {
+    .secondary-header {
+      width: calc(768px - (50px*2));
+    }
+  }
 
 .secondary-header__title {
   margin: 0 0 23px 0;
@@ -18,3 +23,8 @@
   line-height: normal;
   letter-spacing: -0.88px;
 }
+  @media screen and (max-width: 1023px) {
+    .secondary-header__title {
+
+    }
+  }

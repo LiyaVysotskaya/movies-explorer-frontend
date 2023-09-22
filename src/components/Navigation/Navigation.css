@@ -12,6 +12,12 @@
   align-items: center;
   list-style: none;
 }
+  @media screen and (max-width: 767px) {
+    .navigation__unauthorized {
+      width: 132px;
+      padding-top: 24px;
+    }
+  }
 
 .navigation__list {
   width: fit-content;
@@ -53,6 +59,11 @@
   font-weight: 500;
   line-height: 16px;
 }
+  @media screen and (max-width: 767px) {
+    .navigation__link_signup {
+      font-size: 10px;
+    }
+  }
 
 .navigation__link_signin {
   width: 76px;
@@ -68,6 +79,14 @@
   line-height: 16px;
   text-align: center;
 }
+  @media screen and (max-width: 767px) {
+    .navigation__link_signin {
+      width: 54px;
+      padding: 5px 12px;
+      height: 26px;
+      font-size: 10px;
+    }
+  }
 
 .navigation__link_account {
   display: flex;

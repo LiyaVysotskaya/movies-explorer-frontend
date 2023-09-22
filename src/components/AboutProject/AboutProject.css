@@ -10,6 +10,12 @@
   grid-template-columns: repeat(2, minmax(0, auto));
   gap: 26px 40px;
 }
+  @media screen and (max-width: 1023px) {
+    .about__container-description {
+      margin-bottom: 93px;
+      gap: 22px 30px;
+    }
+  }
 
 .about__text {
   width: fit-content;
@@ -23,6 +29,11 @@
   line-height: normal;
   letter-spacing: -0.8px;
 }
+  @media screen and (max-width: 1023px) {
+    .about__text {
+
+    }
+  }
 
 .about__description {
   width: fit-content;
@@ -35,6 +46,12 @@
   font-weight: 400;
   line-height: 20px;
 }
+  @media screen and (max-width: 1023px) {
+    .about__description {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
 
 .about__container-deadlines {
   width: 100%;
@@ -44,6 +61,11 @@
   align-items: center;
   justify-content: center;
 }
+  @media screen and (max-width: 1023px) {
+    .about__container-deadlines {
+      grid-template-columns: 140px 528px;
+    }
+  }
 
 .about__time {
   width: inherit;
