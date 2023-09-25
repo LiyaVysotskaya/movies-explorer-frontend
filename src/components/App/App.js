@@ -12,7 +12,7 @@ function App() {
     <div className="page__container">
       <Header loggedIn={false} />
       <Main></Main>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }
