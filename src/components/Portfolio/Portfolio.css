@@ -95,6 +95,7 @@
   }
   @media screen and (max-width: 767px) {
     .portfolio__link {
+      height: 28px;
       font-size: 18px;
       line-height: 28px;
       letter-spacing: -0.72px;
@@ -126,5 +127,6 @@
     .portfolio__button {
       width: 18px;
       height: 28px;
+      background-size: 10px 10px;
     }
   }
