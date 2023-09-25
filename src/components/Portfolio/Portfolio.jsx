@@ -9,19 +9,19 @@ function Portfolio() {
       <nav className="portfolio__links">
         <ul className="portfolio__links-list">
           <li className="portfolio__element">
-            <Link className="portfolio__link" to='#'>
+            <Link className="portfolio__link" to='https://liyavysotskaya.github.io/how-to-learn/' target="blank">
               Статичный сайт
               <button className="portfolio__button"></button>
             </Link>
           </li>
           <li className="portfolio__element">
-            <Link className="portfolio__link" to='#'>
+            <Link className="portfolio__link" to='https://liyavysotskaya.github.io/russian-travel/' target="blank">
               Адаптивный сайт
               <button className="portfolio__button"></button>
             </Link>
           </li>
           <li className="portfolio__element">
-            <Link className="portfolio__link" to='#'>
+            <Link className="portfolio__link" to='https://liyavysotskaya.github.io/mesto/' target="blank">
               Одностраничное приложение
               <button className="portfolio__button"></button>
             </Link>

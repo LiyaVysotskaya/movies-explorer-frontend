@@ -6,7 +6,7 @@ import photo from '../../images/photo.jpg';
 
 function AboutMe() {
   return (
-    <section className="student">
+    <section className="student" id='me'>
       <Content title='Студент' mini={true} >
         <img className="student__photo" alt="Фотография студента" src={photo}></img>
         <h3 className="student__text">Виталий</h3>
@@ -17,7 +17,7 @@ function AboutMe() {
           С&nbsp;2015 года работал в&nbsp;компании &laquo;СКБ Контур&raquo;.
           После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
         </p>
-        <Link className='student__link-github' to='#'>Github</Link>
+        <Link className='student__link-github' to='https://github.com/LiyaVysotskaya' target="blank">Github</Link>
       </Content>
     </section>
   )

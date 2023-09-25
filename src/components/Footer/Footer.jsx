@@ -9,8 +9,8 @@ function Footer() {
       <div className="footer__container">
         <p className="footer__copyright">&copy;2020</p>
         <nav className="footer__links">
-          <Link className="footer__link">Яндекс.Практикум</Link>
-          <Link className="footer__link">Github</Link>
+          <Link className="footer__link" to='https://practicum.yandex.ru/' target="blank">Яндекс.Практикум</Link>
+          <Link className="footer__link" to='https://github.com/LiyaVysotskaya' target="blank">Github</Link>
         </nav>
       </div>
     </footer>

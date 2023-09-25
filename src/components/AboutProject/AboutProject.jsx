@@ -4,7 +4,7 @@ import Content from "../Content/Content";
 
 function AboutProject() {
   return (
-    <section className="about">
+    <section className="about" id='about'>
       <Content title='О проекте'>
         <div className="about__container-description">
           <h3 className="about__text">Дипломный проект включал 5 этапов</h3>

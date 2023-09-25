@@ -4,7 +4,7 @@ import Content from "../Content/Content";
 
 function Techs() {
   return (
-    <section className="techs">
+    <section className="techs" id='techs'>
       <Content title='Технологии' mini={true} techs={true} >
         <h3 className="techs__text">7 технологий</h3>
         <p className="techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './NavTab.css';
 
 function NavTab() {
@@ -7,9 +7,9 @@ function NavTab() {
     <div className='navtab__basement'>
       <nav className='navtab__links'>
         <ul className='navtab__links-list'>
-          <li className='navtab__links-item'><Link className='navtab__link' to='#'>О проекте</Link></li>
-          <li className='navtab__links-item'><Link className='navtab__link' to='#'>Технологии</Link></li>
-          <li className='navtab__links-item'><Link className='navtab__link' to='#'>Студент</Link></li>
+          <li className='navtab__links-item'><a className='navtab__link' href='#about'>О проекте</a></li>
+          <li className='navtab__links-item'><a className='navtab__link' href='#techs'>Технологии</a></li>
+          <li className='navtab__links-item'><a className='navtab__link' href='#me'>Студент</a></li>
         </ul>
       </nav>
     </div>
