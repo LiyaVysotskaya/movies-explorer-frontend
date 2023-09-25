@@ -6,8 +6,8 @@ function Content(props) {
   console.log(props)
   return (
     <>
-      <div className={`content ${props.techs && 'content_techs'}`}>
-        <SecondaryHeader title={props.title}></SecondaryHeader>
+      <div className={`content ${props.mini && 'content_mini'}`}>
+        <SecondaryHeader techs={props.techs} title={props.title}></SecondaryHeader>
         {props.children}
       </div>
     </>

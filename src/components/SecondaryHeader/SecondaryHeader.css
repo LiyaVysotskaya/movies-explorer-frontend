@@ -9,12 +9,21 @@
 }
   @media screen and (max-width: 1023px) {
     .secondary-header {
-      width: calc(768px - (50px*2));
+      max-width: calc(768px - (50px*2));
     }
   }
   @media screen and (max-width: 767px) {
     .secondary-header {
-      width: calc(320px - (18px*2));
+      max-width: calc(320px - (14px*2));
+    }
+  }
+
+.secondary-header_techs {
+  margin: 0 auto;
+}
+  @media screen and (max-width: 767px) {
+    .secondary-header_techs {
+      max-width: calc(320px - (18px*2));
     }
   }
 

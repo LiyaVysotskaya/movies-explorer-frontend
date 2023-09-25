@@ -7,7 +7,7 @@ import photo from '../../images/photo.jpg';
 function AboutMe() {
   return (
     <section className="student">
-      <Content title='Студент'>
+      <Content title='Студент' mini={true} >
         <h3 className="student__text">Виталий</h3>
         <p className="student__introducing">Фронтенд-разработчик, 30 лет</p>
         <p className="student__description">

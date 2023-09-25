@@ -13,9 +13,9 @@ function Main(props) {
       <Promo></Promo>
       <NavTab></NavTab>
       <AboutProject></AboutProject>
-     {/*  <Techs></Techs>
+      <Techs></Techs>
       <AboutMe></AboutMe>
-      <Portfolio></Portfolio> */}
+      {/* <Portfolio></Portfolio> */}
     </main>
   )
 }
