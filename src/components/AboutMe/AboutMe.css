@@ -3,6 +3,12 @@
   box-sizing: border-box;
   position: relative;
 }
+  @media screen and (max-width: 767px) {
+    .student {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
 .student__text {
   margin: 66px 0 0 0;
@@ -24,7 +30,10 @@
   }
   @media screen and (max-width: 767px) {
     .student__text {
-      max-width: calc(320px - (18px*2));
+      margin-top: 40px;
+      font-size: 30px;
+      line-height: normal;
+      letter-spacing: -1.2px;
     }
   }
 
@@ -47,7 +56,9 @@
   }
   @media screen and (max-width: 767px) {
     .student__introducing {
-      max-width: calc(320px - (18px*2));
+      margin-top: 20px;
+      font-size: 11px;
+      line-height: 16px;
     }
   }
 
@@ -72,7 +83,10 @@
   }
   @media screen and (max-width: 767px) {
     .student__description {
-      max-width: calc(320px - (18px*2));
+      margin-bottom: 40px;
+      width: 292px;
+      font-size: 11px;
+      line-height: 16px;
     }
   }
 
@@ -108,6 +122,11 @@
   }
   @media screen and (max-width: 767px) {
     .student__photo {
-      max-width: calc(320px - (18px*2));
+      width: 292px;
+      height: 352px;
+      margin-top: 60px;
+      position: relative;
+      top: 0;
+      right: 0;
     }
   }

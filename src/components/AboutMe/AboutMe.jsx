@@ -8,6 +8,7 @@ function AboutMe() {
   return (
     <section className="student">
       <Content title='Студент' mini={true} >
+        <img className="student__photo" alt="Фотография студента" src={photo}></img>
         <h3 className="student__text">Виталий</h3>
         <p className="student__introducing">Фронтенд-разработчик, 30 лет</p>
         <p className="student__description">
@@ -17,7 +18,6 @@ function AboutMe() {
           После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
         </p>
         <Link className='student__link-github' to='#'>Github</Link>
-        <img className="student__photo" alt="Фотография студента" src={photo}></img>
       </Content>
     </section>
   )
