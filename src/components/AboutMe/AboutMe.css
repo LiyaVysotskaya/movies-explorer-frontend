@@ -1,10 +1,18 @@
 .student {
-  margin: 0 auto;
+  margin: 10px auto 0;
+  min-height: 644px;
   box-sizing: border-box;
   position: relative;
 }
+  @media screen and (max-width: 1023px) {
+    .student {
+      min-height: 604px;
+      margin-top: 0;
+    }
+  }
   @media screen and (max-width: 767px) {
     .student {
+      min-height: 904px;
       display: flex;
       flex-direction: column;
     }
@@ -109,7 +117,7 @@
   display: block;
   object-fit: cover;
   position: absolute;
-  top: 227px;
+  top: 217px;
   right: 70px;
 }
   @media screen and (max-width: 1023px) {

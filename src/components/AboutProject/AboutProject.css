@@ -1,6 +1,17 @@
 .about {
+  min-height: 608px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+@media screen and (max-width: 1023px) {
+  .about {
+    min-height: 585px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about {
+    min-height: 641px;
+  }
 }
 
 .about__container-description {

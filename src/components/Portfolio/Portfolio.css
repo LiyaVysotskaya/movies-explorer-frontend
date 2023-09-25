@@ -3,6 +3,18 @@
   padding: 0 70px;
   box-sizing: border-box;
 }
+@media screen and (max-width: 1023px) {
+  .portfolio {
+    max-width: 768px;
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio {
+    max-width: 320px;
+    padding: 0 14px;
+  }
+}
 
 .portfolio__header {
   margin: 0;
@@ -14,11 +26,21 @@
   font-weight: 400;
   line-height: 20px;
 }
+  @media screen and (max-width: 767px) {
+    .portfolio__header {
+      font-size: 14px;
+    }
+  }
 
 .portfolio__links {
   width: 100%;
   margin: 30px auto 106px;
 }
+  @media screen and (max-width: 767px) {
+    .portfolio__links {
+      margin: 21px auto 70px;
+    }
+  }
 
 .portfolio__links-list {
   margin: 0 auto;
@@ -40,6 +62,11 @@
   .portfolio__element:last-of-type {
     border-bottom: none;
   }
+  @media screen and (max-width: 767px) {
+    .portfolio__element {
+      min-height: 66px;
+    }
+  }
 
 .portfolio__link {
   width: 100%;
@@ -60,6 +87,19 @@
     opacity: 0.7;
     cursor: pointer;
   }
+  @media screen and (max-width: 1023px) {
+    .portfolio__link {
+      font-size: 28px;
+      letter-spacing: -1.12px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .portfolio__link {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.72px;
+    }
+  }
 
 .portfolio__button {
   width: 29px;
@@ -76,4 +116,15 @@
   .portfolio__button:hover {
     opacity: 0.7;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1023px) {
+    .portfolio__button {
+      width: 27px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .portfolio__button {
+      width: 18px;
+      height: 28px;
+    }
   }
