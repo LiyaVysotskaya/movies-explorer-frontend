@@ -52,7 +52,7 @@ function Header(props) {
     // }
 
   return (
-    <header className={`header ${isMenuOpen && props.loggedIn && 'header_colomn'}`}>
+    <header className={`header ${location.pathname==='/' ? '' : 'header_white'}`}>
       <div className='header__container'>
         <Link className='header__link-logo' to='/' ><img className="header__logo" src={logo} alt="Логотип диплома" /></Link>
         {props.loggedIn && getMenu()}

@@ -11,6 +11,9 @@
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
 }
+::-webkit-scrollbar {
+  width: 0;
+}
 
 .page__container {
   max-width: 1280px;
@@ -22,4 +25,5 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  border: 1px solid red;
 }
