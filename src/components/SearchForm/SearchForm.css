@@ -28,8 +28,8 @@
   margin: 19px 10px 19px 19px;
   display: block;
   box-sizing: border-box;
-  border-radius: 6px;
   background-image: url(../../images/search-logo.svg);
+  background-color: inherit;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -62,11 +62,10 @@
 }
 
 .search__button {
-  width: 59px;
+  width: 58.65px;
   height: 34px;
   margin: 0 0 0 21px;
   padding: 0px;
-  display: block;
   box-sizing: border-box;
   border-radius: 48px;
   background-color: #000;
@@ -76,4 +75,5 @@
   font-weight: 500;
   line-height: 18px;
   text-align: center;
+  border: none;
 }
