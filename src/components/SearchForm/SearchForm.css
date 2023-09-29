@@ -1,28 +1,51 @@
 .search {
-  max-width: 1280px;
+  max-width: calc(1280px - (70px*2));
   width: 100%;
-  min-height: 222px;
+  min-height: 212px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 70px;
   display: flex;
+  border-bottom: 1px solid #E8E8E8;
 }
+  @media screen and (max-width: 1023px) {
+    .search {
+      max-width: calc(768px - (30px*2));
+      min-height: 262px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .search {
+      max-width: calc(320px - (10px*2));
+    }
+  }
 
 .search__container {
-  max-width: calc(1280px - (70px * 2));
+  max-width: calc(1280px - (70px*2));
   width: 100%;
   min-height: 72px;
   height: 100%;
-  margin: 70px 0 80px 0;
+  margin: 70px 0;
+  padding: 0;
   display: flex;
   align-items: center;
   border-radius: 9px;
   background: #FDFDFD;
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
 }
+  @media screen and (max-width: 1023px) {
+    .search__container {
+      max-width: calc(768px - (30px*2));
+      margin: 80px 0 110px 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .search__container {
+      max-width: calc(320px - (10px*2));
+    }
+  }
 
 .search__logo {
-  width: 34px;
+  min-width: 34px;
   height: 34px;
   padding: 0;
   margin: 19px 10px 19px 19px;
@@ -43,6 +66,17 @@
   align-items: center;
   border-right: 1px solid rgba(0, 0, 0, .2);
 }
+  @media screen and (max-width: 1023px) {
+    .search__form {
+      max-width: 437px;
+      min-height: 34px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .search__form {
+      max-width: calc(320px - (10px*2));
+    }
+  }
 
 .search__input {
   max-width: 751px;
@@ -60,11 +94,21 @@
   border: none;
   outline: none;
 }
+  @media screen and (max-width: 1023px) {
+    .search__input {
+      max-width: 338px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .search__input {
+      max-width: calc(320px - (10px*2));
+    }
+  }
 
 .search__button {
-  width: 58.65px;
+  min-width: 58.65px;
   height: 34px;
-  margin: 0 0 0 21px;
+  margin: 0 19px 0 21px;
   padding: 0px;
   box-sizing: border-box;
   border-radius: 48px;

@@ -20,7 +20,7 @@ function SearchForm(props) {
           />
           <button className="search__button" type="submit">Найти</button>
         </form>
-        <FilterCheckbox />
+        <FilterCheckbox text='Короткометражки' />
       </div>
     </section>
   )

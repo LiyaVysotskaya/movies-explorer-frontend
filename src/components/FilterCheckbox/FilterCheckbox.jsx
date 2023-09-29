@@ -6,7 +6,7 @@ function FilterCheckbox(props) {
     <label className="switch">
       <input className="switch__input" type="checkbox" value={props.isChecked} onChange={props.handleChange} />
       <div className="swith__slider"></div>
-      <span className="swith__text">Короткометражки</span>
+      <span className="swith__text">{props.text}</span>
     </label>
   )
 }
