@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import './App.css';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+// import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../Footer/Footer';
@@ -19,10 +19,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/movies" element={
-            <ProtectedRoute
-              element={Movies}
-              loggedIn={loggedIn}
-            />
+          <Movies />
+            // <ProtectedRoute
+            //   element={Movies}
+            //   loggedIn={loggedIn}
+            // />
           }
         />
         <Route path="/saved-movies" element={<></>} />
