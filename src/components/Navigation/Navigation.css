@@ -103,9 +103,14 @@
   display: block;
   box-sizing: border-box;
   border-radius: 6px;
-  background-image: url(../../images/account-logo.svg);
+  background-image: url(../../images/account-logo-pink.svg);
   background-color: #000;
   background-size: 10px 10px;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.navigation__logo-account_white {
+  background-image: url(../../images/account-logo-black.svg);
+  background-color: #F9F9F9;
 }

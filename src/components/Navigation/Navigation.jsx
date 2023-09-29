@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import './Navigation.css';
 
 function Navigation(props) {
+  const location = useLocation();
+
   if (props.loggedIn) {
     return (
       <nav className="navigation">
@@ -13,7 +15,7 @@ function Navigation(props) {
           </div>
           <li>
             <Link className="navigation__link navigation__link_account" to='/profile' target="blank">Аккаунт
-              <div className="navigation__logo-account"></div>
+              <div className={`navigation__logo-account ${location.pathname==='/' ? '' : 'navigation__logo-account_white'}`}></div>
             </Link>
           </li>
         </ul>
