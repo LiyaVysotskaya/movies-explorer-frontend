@@ -27,6 +27,7 @@
   margin: 70px 0;
   padding: 0;
   display: flex;
+  position: relative;
   align-items: center;
   border-radius: 9px;
   background: #FDFDFD;
@@ -56,6 +57,11 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+  @media screen and (max-width: 767px) {
+    .search__logo {
+      display: none;
+    }
+  }
 
 .search__form {
   max-width: 850px;
@@ -74,7 +80,9 @@
   }
   @media screen and (max-width: 767px) {
     .search__form {
-      max-width: calc(320px - (10px*2));
+      max-width: 281px;
+      margin-left: 19px;
+      border: none;
     }
   }
 
@@ -101,7 +109,7 @@
   }
   @media screen and (max-width: 767px) {
     .search__input {
-      max-width: calc(320px - (10px*2));
+      font-size: 14px;
     }
   }
 
