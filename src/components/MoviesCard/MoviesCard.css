@@ -11,6 +11,45 @@
   background-color: inherit;
   overflow: hidden;
 }
-  .movies__element:hover {
+
+.movies__image {
+  width: 360px;
+  height: 201px;
+  display: block;
+  object-fit: cover;
+}
+  .movies__image:hover {
     cursor: pointer;
   }
+
+.movies__basement {
+  max-width: 360px;
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movies__name {
+  margin: 0;
+  padding: 0 0 0 14px;
+  color: #000;
+  font-family: inherit;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.movies__time {
+  margin: 0;
+  padding: 0 18px 0 0;
+  color: #A0A0A0;
+  text-align: center;
+  font-family: inherit;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+}

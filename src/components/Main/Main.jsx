@@ -9,7 +9,7 @@ import Portfolio from '../Portfolio/Portfolio';
 
 function Main(props) {
   return (
-    <main className='main' >
+    <main className='main'>
       <Promo></Promo>
       <NavTab></NavTab>
       <AboutProject></AboutProject>
