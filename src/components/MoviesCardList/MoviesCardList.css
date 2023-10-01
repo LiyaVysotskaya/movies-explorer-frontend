@@ -1,0 +1,13 @@
+.movies {
+  max-width: calc(1280px - (70px*2));
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.movies__list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 96px;
+  list-style: none;
+}

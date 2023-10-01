@@ -1,0 +1,16 @@
+.movies__element {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 360px;
+  width: 100%;
+  max-height: 231px;
+  height: 100%;
+  position: relative;
+  align-items: center;
+  background-color: inherit;
+  overflow: hidden;
+}
+  .movies__element:hover {
+    cursor: pointer;
+  }
