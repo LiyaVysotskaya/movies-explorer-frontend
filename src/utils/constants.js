@@ -7,6 +7,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 8,
@@ -56,36 +63,42 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 9,
     name: '33 слова о дизайне',
     image: img,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 10,
     name: '33 слова о дизайне',
     image: img,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 11,
     name: '33 слова о дизайне',
     image: img,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 12,
     name: '33 слова о дизайне',
     image: img,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 13,
     name: '33 слова о дизайне',
     image: img,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 14,
@@ -93,6 +106,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 15,
@@ -100,6 +114,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 16,
@@ -107,6 +122,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 17,
@@ -114,6 +130,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 18,
@@ -121,6 +138,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 19,
@@ -128,6 +146,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 20,
@@ -135,6 +154,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
   {
     id: 21,
@@ -142,6 +162,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: true,
   },
   {
     id: 22,
@@ -149,43 +170,7 @@ export const movies = [
     image: img,
     duration: 200,
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
-  },
-]
-
-export const saveMovies = [
-  {
-    id: 1,
-    name: '33 слова о дизайне',
-    image: img,
-    trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
-  },
-  {
-    id: 2,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 200,
-    trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
-  },
-  {
-    id: 3,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 200,
-    trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
-  },
-  {
-    id: 4,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 200,
-    trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
-  },
-  {
-    id: 5,
-    name: '33 слова о дизайне',
-    image: img,
-    duration: 200,
-    trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
+    saved: false,
   },
 ]
 
@@ -194,21 +179,21 @@ export const devises = {
     width: 1023,
     movies: {
       default: 12,
-      more: 6,
+      more: 3,
     },
   },
   tablet: {
     width: 767,
     movies: {
       default: 8,
-      more: 4,
+      more: 2,
     },
   },
   mobile: {
     width: 320,
     movies: {
       default: 5,
-      more: 3,
+      more: 2,
     },
   },
 };

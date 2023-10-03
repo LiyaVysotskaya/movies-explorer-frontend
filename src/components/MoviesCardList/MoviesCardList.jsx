@@ -7,7 +7,11 @@ function MoviesCardList(props) {
     <section className="movies">
       <ul className="movies__list">
         {props.moviesList.map(movie =>
-          <MoviesCard movie={movie} key={movie.id} name={movie.name} duration={movie.duration} src={movie.image} />
+          <MoviesCard
+            key={movie.id}
+            name={movie.name}
+            duration={movie.duration}
+            src={movie.image} />
         )}
       </ul>
       {!props.endOfList &&
