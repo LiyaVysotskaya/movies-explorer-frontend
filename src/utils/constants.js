@@ -188,3 +188,27 @@ export const saveMovies = [
     trailerLink: "https://www.youtube.com/watch?v=ecpqKUE0DpU",
   },
 ]
+
+export const devises = {
+  desktop: {
+    width: 1023,
+    movies: {
+      default: 12,
+      more: 6,
+    },
+  },
+  tablet: {
+    width: 767,
+    movies: {
+      default: 8,
+      more: 4,
+    },
+  },
+  mobile: {
+    width: 320,
+    movies: {
+      default: 5,
+      more: 3,
+    },
+  },
+};
