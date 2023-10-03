@@ -44,7 +44,7 @@ function SavedMovies() {
   return (
     <main className="main__saved-movies">
       <SearchForm />
-      <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} />
+      <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={false} />
     </main>
   )
 }

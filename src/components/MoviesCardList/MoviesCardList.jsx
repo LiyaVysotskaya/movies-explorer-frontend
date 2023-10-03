@@ -11,7 +11,9 @@ function MoviesCardList(props) {
             key={movie.id}
             name={movie.name}
             duration={movie.duration}
-            src={movie.image} />
+            src={movie.image}
+            saved={movie.saved}
+            showSavedIcon={props.showSavedIcon} />
         )}
       </ul>
       {!props.endOfList &&

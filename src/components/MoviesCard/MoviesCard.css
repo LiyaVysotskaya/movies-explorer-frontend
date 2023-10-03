@@ -96,3 +96,46 @@
       margin: 0;
     }
   }
+
+.movies__container {
+  position: relative;
+}
+.movies__container:hover .movies__button {
+  visibility: visible;
+}
+
+.movies__button {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.movies__button_saved {
+  background-image: url('../../images/saved-btn.svg');
+}
+
+.movies__button_add {
+  width: 72px;
+  visibility: hidden;
+  background-color: #F9F9F9;
+  border-radius: 30px;
+  color: #000;
+  text-align: center;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 9px;
+}
+
+.movies__button_delete {
+  visibility: hidden;
+  background-image: url('../../images/delete-btn.svg');
+}
