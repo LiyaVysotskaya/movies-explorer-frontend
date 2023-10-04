@@ -1,7 +1,31 @@
 .navigation {
   display: flex;
+  box-sizing: border-box;
   align-items: center;
+  border: 1px solid red;
 }
+  @media screen and (max-width: 1023px) {
+    .navigation {
+      max-width: calc(320px + (1280-320) * ((100vw - 320px) / (1280-320)));
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .3);
+      position: absolute;
+      top: 0px;
+      right: 0;
+      justify-content: right;
+      z-index: 2;
+    }
+  }
+
+  /* @media screen and (max-width: 767px) {
+    .navigation {
+      width: 40px;
+      height: 43px;
+      background-size: 33px 40px;
+    }
+  } */
+
 
 .navigation__unauthorized {
   width: 183px;
@@ -23,10 +47,27 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
   list-style: none;
 }
+  @media screen and (max-width: 1023px) {
+    .navigation__list {
+      width: 66%;
+      height: calc(100% - 159px);
+      padding-top: 159px;
+      background-color: #FFF;
+      flex-direction: column;
+      z-index: 3;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .navigation__list {
+      width: 100%;
+      height: calc(100% - 144px);
+      padding-top: 144px;
+    }
+  }
 
 .navigation__element {
   margin: 0 0 0 20px;
@@ -36,6 +77,19 @@
 }
   .navigation__element:last-of-type {
     margin-left: 50px;
+  }
+  @media screen and (max-width: 1023px) {
+    .navigation__element {
+      margin-top: 28px;
+      margin-left: 0;
+    }
+    .navigation__element:first-of-type {
+      margin-top: 0;
+    }
+    .navigation__element:last-of-type {
+      position: absolute;
+      bottom: 92px;
+    }
   }
 
 .navigation__link {
@@ -54,6 +108,14 @@
   .navigation__link:hover {
     opacity: 0.7;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1023px) {
+    .navigation__link {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: normal;
+    }
   }
 
 .navigation__link_signup {
@@ -96,6 +158,11 @@
   line-height: 16px;
   align-items: center;
 }
+  @media screen and (max-width: 1023px) {
+    .navigation__link_account {
+      font-size: 14px;
+    }
+  }
 
 .navigation__logo-account {
   width: 30px;
@@ -130,7 +197,7 @@
     opacity: 0.8;
     cursor: pointer;
   }
-  @media screen and (min-width: 1023px) {
+  @media screen and (min-width: 1024px) {
     .navigation__menu-button {
       display: none;
     }
@@ -140,7 +207,8 @@
   width: 22px;
   height: 22px;
   background-image: url(../../images/close-icon.svg);
-  background-size: 22px 22px;
+  background-color: inherit;
+  z-index: 4;
 }
 
 .navigation__menu-button_open {

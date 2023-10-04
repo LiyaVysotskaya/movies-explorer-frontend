@@ -8,10 +8,8 @@ function Header(props) {
   const location = useLocation();
 
   return (
-    <header className={`header ${location.pathname==='/' ? '' : 'header_white'}`}>
-      <div className='header__container'>
-        <Link className='header__link-logo' to='/' ><img className="header__logo" src={logo} alt="Логотип диплома" /></Link>
-      </div>
+    <header className={`header ${location.pathname === '/' ? '' : 'header_white'}`}>
+      <Link className='header__link-logo' to='/' ><img className="header__logo" src={logo} alt="Логотип диплома" /></Link>
       <Navigation loggedIn={props.loggedIn} />
     </header>
   );

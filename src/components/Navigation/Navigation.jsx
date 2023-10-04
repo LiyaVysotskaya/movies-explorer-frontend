@@ -26,10 +26,10 @@ function Navigation(props) {
   if (props.loggedIn) {
     return <>
       <button className={`navigation__menu-button navigation__menu-button_${isMenuOpen ? "close" : "open"}`} onClick={onMenuClick}></button>
-      {(width >= 1023 || isMenuOpen) &&
+      {(width >= 1024 || isMenuOpen) &&
         <nav className="navigation">
           <ul className="navigation__list">
-            {width < 1023 && <li className="navigation__element"><Link className="navigation__link" to='/' target="blank">Главная</Link></li>}
+            {width < 1024 && <li className="navigation__element"><Link className="navigation__link" to='/' target="blank">Главная</Link></li>}
             <li className="navigation__element"><Link className="navigation__link" to='/movies' target="blank">Фильмы</Link></li>
             <li className="navigation__element"><Link className="navigation__link" to='/saved-movies' target="blank">Сохранённые фильмы</Link></li>
             <li className="navigation__element">
