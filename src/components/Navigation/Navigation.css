@@ -6,7 +6,7 @@
 .navigation__unauthorized {
   width: 183px;
   margin: 0;
-  padding: 21px 0 0 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,26 +15,28 @@
   @media screen and (max-width: 767px) {
     .navigation__unauthorized {
       width: 132px;
-      padding-top: 24px;
     }
   }
 
 .navigation__list {
   width: fit-content;
   margin: 0;
-  padding: 21px 0 0 0;
+  padding: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
 }
 
-.navigation__film {
-  width: 230px;
-  padding: 0 50px 0 0;
+.navigation__element {
+  margin: 0 0 0 20px;
+  white-space: nowrap;
   display: flex;
   justify-content: space-between;
 }
+  .navigation__element:last-of-type {
+    margin-left: 50px;
+  }
 
 .navigation__link {
   margin: 0;
@@ -114,3 +116,42 @@
   background-image: url(../../images/account-logo-black.svg);
   background-color: #F9F9F9;
 }
+
+.navigation__menu-button {
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: inherit;
+  border: none;
+  transition: opacity .4s;
+}
+  .navigation__menu-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  @media screen and (min-width: 1023px) {
+    .navigation__menu-button {
+      display: none;
+    }
+  }
+
+.navigation__menu-button_close {
+  width: 22px;
+  height: 22px;
+  background-image: url(../../images/close-icon.svg);
+  background-size: 22px 22px;
+}
+
+.navigation__menu-button_open {
+  width: 44px;
+  height: 44px;
+  background-image: url(../../images/menu-icon.svg);
+}
+  @media screen and (max-width: 767px) {
+    .navigation__menu-button_open {
+      width: 40px;
+      height: 43px;
+      background-size: 33px 40px;
+    }
+  }

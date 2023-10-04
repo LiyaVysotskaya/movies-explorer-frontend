@@ -4,25 +4,43 @@ import './Navigation.css';
 
 function Navigation(props) {
   const location = useLocation();
+  const [isMenuOpen, setMenuOpen] = React.useState(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const onResize = () => {
+      setWidth(window.innerWidth);
+      setMenuOpen(false);
+    }
+
+    window.addEventListener("resize", onResize);
+
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+
+  function onMenuClick() {
+    setMenuOpen(x => !x);
+  }
 
   if (props.loggedIn) {
-    if (window.innerWidth > 1023) {
-      return (
+    return <>
+      <button className={`navigation__menu-button navigation__menu-button_${isMenuOpen ? "close" : "open"}`} onClick={onMenuClick}></button>
+      {(width >= 1023 || isMenuOpen) &&
         <nav className="navigation">
           <ul className="navigation__list">
-            <div className="navigation__film">
-              <li><Link className="navigation__link" to='/movies' target="blank">Фильмы</Link></li>
-              <li><Link className="navigation__link" to='/saved-movies' target="blank">Сохранённые фильмы</Link></li>
-            </div>
-            <li>
+            {width < 1023 && <li className="navigation__element"><Link className="navigation__link" to='/' target="blank">Главная</Link></li>}
+            <li className="navigation__element"><Link className="navigation__link" to='/movies' target="blank">Фильмы</Link></li>
+            <li className="navigation__element"><Link className="navigation__link" to='/saved-movies' target="blank">Сохранённые фильмы</Link></li>
+            <li className="navigation__element">
               <Link className="navigation__link navigation__link_account" to='/profile' target="blank">Аккаунт
-                <div className={`navigation__logo-account ${location.pathname==='/' ? '' : 'navigation__logo-account_white'}`}></div>
+                <div className={`navigation__logo-account ${location.pathname === '/' ? '' : 'navigation__logo-account_white'}`}></div>
               </Link>
             </li>
           </ul>
         </nav>
-      )
-    }
+      }
+    </>
   } else {
     return (
       <nav className="navigation">
