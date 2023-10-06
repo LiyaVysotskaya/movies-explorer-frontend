@@ -3,8 +3,10 @@ import './Movies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { movies, devises } from "../../utils/constants";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-function Movies() {
+function Movies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
   const [endOfList, setEndOfList] = React.useState(false);
 
@@ -25,7 +27,7 @@ function Movies() {
   }
 
   const loadData = (skip, count) => {
-    let end = skip+count;
+    let end = skip + count;
 
     if (movies.length < end) {
       end = movies.length;
@@ -42,10 +44,15 @@ function Movies() {
   }
 
   return (
-    <main className="main__movies">
-      <SearchForm />
-      <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={true} />
-    </main>
+    <>
+      <Header loggedIn={props.loggedIn} pageName={'movies'} />
+      <main className="main__movies">
+        <SearchForm />
+        <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={true} />
+      </main>
+      <Footer />
+    </>
+
   )
 }
 

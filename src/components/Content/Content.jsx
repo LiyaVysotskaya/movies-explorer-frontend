@@ -3,7 +3,6 @@ import './Content.css';
 import SecondaryHeader from "../SecondaryHeader/SecondaryHeader";
 
 function Content(props) {
-  console.log(props)
   return (
     <>
       <div className={`content ${props.mini && 'content_mini'}`}>

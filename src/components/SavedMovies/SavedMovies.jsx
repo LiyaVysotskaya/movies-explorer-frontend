@@ -3,8 +3,10 @@ import './SavedMovies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { movies, devises } from "../../utils/constants";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
-function SavedMovies() {
+function SavedMovies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
   const [endOfList, setEndOfList] = React.useState(false);
 
@@ -42,10 +44,15 @@ function SavedMovies() {
   }
 
   return (
-    <main className="main__saved-movies">
-      <SearchForm />
-      <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={false} />
-    </main>
+    <>
+      <Header loggedIn={props.loggedIn} pageName={'saved-movies'} />
+      <main className="main__saved-movies">
+        <SearchForm />
+        <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={false} />
+      </main>
+      <Footer />
+    </>
+
   )
 }
 

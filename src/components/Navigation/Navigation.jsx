@@ -29,11 +29,37 @@ function Navigation(props) {
       {(width >= 1024 || isMenuOpen) &&
         <nav className="navigation">
           <ul className="navigation__list">
-            {width < 1024 && <li className="navigation__element"><Link className="navigation__link" to='/' target="blank">Главная</Link></li>}
-            <li className="navigation__element"><Link className="navigation__link" to='/movies' target="blank">Фильмы</Link></li>
-            <li className="navigation__element"><Link className="navigation__link" to='/saved-movies' target="blank">Сохранённые фильмы</Link></li>
+            {width < 1024 &&
+              <li className="navigation__element">
+                <Link
+                  className={`navigation__link ${props.pageName === 'main' && 'navigation__link_active'}`}
+                  to='/'
+                  target="blank">
+                  Главная
+                </Link>
+              </li>}
             <li className="navigation__element">
-              <Link className="navigation__link navigation__link_account" to='/profile' target="blank">Аккаунт
+              <Link
+                className={`navigation__link ${props.pageName === 'movies' && 'navigation__link_active'}`}
+                to='/movies'
+                target="blank">
+                Фильмы
+              </Link>
+            </li>
+            <li className="navigation__element">
+              <Link
+                className={`navigation__link ${props.pageName === 'saved-movies' && 'navigation__link_active'}`}
+                to='/saved-movies'
+                target="blank">
+                Сохранённые фильмы
+              </Link>
+            </li>
+            <li className="navigation__element">
+              <Link
+                className={`navigation__link navigation__link_account ${props.pageName === 'profile' && 'navigation__link_active'}`}
+                to='/profile'
+                target="blank">
+                Аккаунт
                 <div className={`navigation__logo-account ${location.pathname === '/' ? '' : 'navigation__logo-account_white'}`}></div>
               </Link>
             </li>
@@ -43,8 +69,8 @@ function Navigation(props) {
     </>
   } else {
     return (
-      <nav className="navigation">
-        <ul className='navigation__unauthorized'>
+      <nav className="navigation navigation__unauthorized">
+        <ul className='navigation__list_unauthorized'>
           <li><Link className='navigation__link navigation__link_signup' to='/signup'>Регистрация</Link></li>
           <li><Link className='navigation__link navigation__link_signin' to='/signin'>Войти</Link></li>
         </ul>

@@ -1,3 +1,7 @@
+import Main from '../components/Main/Main';
+import Movies from '../components/Movies/Movies';
+import SavedMovies from '../components/SavedMovies/SavedMovies';
+import Profile from '../components/Profile/Profile';
 import img from '../images/movie.jpg';
 
 export const movies = [

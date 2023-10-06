@@ -10,7 +10,7 @@ function Header(props) {
   return (
     <header className={`header ${location.pathname === '/' ? '' : 'header_white'}`}>
       <Link className='header__link-logo' to='/' ><img className="header__logo" src={logo} alt="Логотип диплома" /></Link>
-      <Navigation loggedIn={props.loggedIn} />
+      <Navigation loggedIn={props.loggedIn} pageName={props.pageName} />
     </header>
   );
 }

@@ -18,34 +18,21 @@ function App() {
     <div className="page__container">
       <Routes>
         <Route path="/" element={
-          <>
-            <Header loggedIn={loggedIn} />
-            <Main />
-            <Footer></Footer>
-          </>
+            <Main loggedIn={loggedIn} />
         } />
         <Route path="/movies" element={
           <>
-            <Header loggedIn={loggedIn} />
-            <Movies />
-            <Footer></Footer>
+            <Movies loggedIn={loggedIn}/>
           </>
-          // <ProtectedRoute
-          //   element={Movies}
-          //   loggedIn={loggedIn}
-          // />
         }
         />
         <Route path="/saved-movies" element={
           <>
-            <Header loggedIn={loggedIn} />
-            <SavedMovies />
-            <Footer></Footer>
+            <SavedMovies loggedIn={loggedIn} />
           </>
         } />
         <Route path="/profile" element={
           <>
-            <Header loggedIn={loggedIn} />
             <Profile />
           </>
         } />
