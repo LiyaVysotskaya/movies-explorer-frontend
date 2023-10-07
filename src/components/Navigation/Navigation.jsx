@@ -32,7 +32,7 @@ function Navigation(props) {
             {width < 1024 &&
               <li className="navigation__element">
                 <Link
-                  className={`navigation__link ${props.pageName === 'main' && 'navigation__link_active'}`}
+                  className={`navigation__link ${props.pageName === 'main' && isMenuOpen && 'navigation__link_active'}`}
                   to='/'
                   target="blank">
                   Главная
@@ -40,7 +40,7 @@ function Navigation(props) {
               </li>}
             <li className="navigation__element">
               <Link
-                className={`navigation__link ${props.pageName === 'movies' && 'navigation__link_active'}`}
+                className={`navigation__link ${props.pageName === 'movies' && isMenuOpen &&'navigation__link_active'}`}
                 to='/movies'
                 target="blank">
                 Фильмы
@@ -48,7 +48,7 @@ function Navigation(props) {
             </li>
             <li className="navigation__element">
               <Link
-                className={`navigation__link ${props.pageName === 'saved-movies' && 'navigation__link_active'}`}
+                className={`navigation__link ${props.pageName === 'saved-movies' && isMenuOpen && 'navigation__link_active'}`}
                 to='/saved-movies'
                 target="blank">
                 Сохранённые фильмы
@@ -56,7 +56,7 @@ function Navigation(props) {
             </li>
             <li className="navigation__element">
               <Link
-                className={`navigation__link navigation__link_account ${props.pageName === 'profile' && 'navigation__link_active'}`}
+                className={`navigation__link navigation__link_account ${props.pageName === 'profile' && isMenuOpen && 'navigation__link_active'}`}
                 to='/profile'
                 target="blank">
                 Аккаунт

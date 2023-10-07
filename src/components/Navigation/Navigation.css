@@ -63,7 +63,7 @@
 }
   @media screen and (max-width: 1023px) {
     .navigation__list {
-      width: 66%;
+      width: 68%;
       height: calc(100% - 159px);
       padding-top: 159px;
       background-color: #FFF;
@@ -129,7 +129,8 @@
   }
 
 .navigation__link_active {
-  text-decoration: underline;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #000;
 }
 
 .navigation__link_signup {
