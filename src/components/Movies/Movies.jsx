@@ -46,7 +46,7 @@ function Movies(props) {
   return (
     <>
       <Header loggedIn={props.loggedIn} pageName={'movies'} />
-      <main className="main__movies">
+      <main className="main_movies">
         <SearchForm />
         <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={true} />
       </main>

@@ -95,6 +95,22 @@
   outline: none;
 }
 
+.profile__input-error {
+  height: 12px;
+  margin-top: 8px;
+  color: #FF4062;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: visible;
+}
+
+.profile__input-error_active {
+  visibility: visible;
+}
+
 .profile__text {
   position: absolute;
   top: 0;

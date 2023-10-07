@@ -46,7 +46,7 @@ function SavedMovies(props) {
   return (
     <>
       <Header loggedIn={props.loggedIn} pageName={'saved-movies'} />
-      <main className="main__saved-movies">
+      <main className="main_saved-movies">
         <SearchForm />
         <MoviesCardList moviesList={moviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={false} />
       </main>

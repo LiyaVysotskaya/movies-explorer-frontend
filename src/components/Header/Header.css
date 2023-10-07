@@ -35,7 +35,8 @@
 } */
 
 .header__link-logo {
-  max-width: fit-content;
+  max-width: 38px;
+  max-height: 38px;
   padding: 0;
   margin: 18px 0;
   transition: opacity .4s;

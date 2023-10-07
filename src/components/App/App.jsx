@@ -8,6 +8,8 @@ import Footer from '../Footer/Footer';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
+import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 // import logo from '../../images/logo.svg';
 
@@ -21,23 +23,17 @@ function App() {
             <Main loggedIn={loggedIn} />
         } />
         <Route path="/movies" element={
-          <>
             <Movies loggedIn={loggedIn}/>
-          </>
         }
         />
         <Route path="/saved-movies" element={
-          <>
             <SavedMovies loggedIn={loggedIn} />
-          </>
         } />
         <Route path="/profile" element={
-          <>
             <Profile loggedIn={loggedIn} />
-          </>
         } />
-        <Route path="/sign-up" element={<></>} />
-        <Route path="/sign-in" element={<></>} />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/signin" element={<Login />} />
         <Route path="/*" element={<></>} />
       </Routes>
     </div>
