@@ -5,13 +5,13 @@
 }
   @media screen and (max-width: 1023px) {
     .content {
-      width: calc(768px - (50px*2));
+      max-width: calc(768px - (50px*2));
       padding: 90px 50px;
     }
   }
   @media screen and (max-width: 767px) {
     .content {
-      width: calc(320px - (18px*2));
+      max-width: calc(320px - (18px*2));
       padding: 70px 18px;
     }
   }
@@ -26,7 +26,7 @@
   }
   @media screen and (max-width: 767px) {
     .content_mini {
-      width: calc(320px - (14px*2));
+      max-width: calc(320px - (14px*2));
       padding: 70px 14px;
     }
   }

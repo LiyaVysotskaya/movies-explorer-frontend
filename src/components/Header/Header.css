@@ -6,11 +6,9 @@
   padding: 0 70px;
   background-color: #F3C1F8;
   display: flex;
-  /* position: relative; */
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  border: none;
 }
   @media screen and (max-width: 1023px) {
     .header {
@@ -26,13 +24,6 @@
 .header_white {
   background-color: #FFF;
 }
-
-/* .header__container {
-  width: 100%;
-  height: inherit;
-  display: flex;
-  justify-content: space-between;
-} */
 
 .header__link-logo {
   max-width: 38px;

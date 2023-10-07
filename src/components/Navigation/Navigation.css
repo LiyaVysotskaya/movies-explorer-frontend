@@ -28,15 +28,6 @@
   }
 }
 
-  /* @media screen and (max-width: 767px) {
-    .navigation {
-      width: 40px;
-      height: 43px;
-      background-size: 33px 40px;
-    }
-  } */
-
-
 .navigation__list_unauthorized {
   width: 183px;
   margin: 0;
