@@ -33,7 +33,7 @@ function App() {
         } />
         <Route path="/profile" element={
           <>
-            <Profile />
+            <Profile loggedIn={loggedIn} />
           </>
         } />
         <Route path="/sign-up" element={<></>} />

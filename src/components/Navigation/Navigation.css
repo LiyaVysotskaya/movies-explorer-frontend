@@ -13,7 +13,7 @@
       top: 0px;
       right: 0;
       justify-content: right;
-      z-index: 2;
+      z-index: 3;
     }
   }
 
@@ -68,7 +68,7 @@
       padding-top: 159px;
       background-color: #FFF;
       flex-direction: column;
-      z-index: 3;
+      z-index: 4;
     }
   }
   @media screen and (max-width: 767px) {
@@ -222,7 +222,7 @@
   width: 22px;
   height: 22px;
   background-image: url(../../images/close-icon.svg);
-  background-color: inherit;
+  background-color: #FFF;
   z-index: 4;
 }
 
