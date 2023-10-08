@@ -1,5 +1,5 @@
 .secondary-header {
-  max-width: calc(1280px - (70px*2));
+  max-width: calc(1280px - (70px * 2));
   width: 100%;
   min-height: 40px;
   margin: 0 auto;
@@ -9,12 +9,12 @@
 }
   @media screen and (max-width: 1023px) {
     .secondary-header {
-      max-width: calc(768px - (50px*2));
+      max-width: calc(768px - (50px * 2));
     }
   }
   @media screen and (max-width: 767px) {
     .secondary-header {
-      max-width: calc(320px - (14px*2));
+      max-width: calc(320px - (14px * 2));
     }
   }
 
@@ -23,7 +23,7 @@
 }
   @media screen and (max-width: 767px) {
     .secondary-header_techs {
-      max-width: calc(320px - (18px*2));
+      max-width: calc(320px - (18px * 2));
     }
   }
 

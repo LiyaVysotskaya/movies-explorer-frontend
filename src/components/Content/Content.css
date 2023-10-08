@@ -1,17 +1,17 @@
 .content {
-  max-width: calc(1280px - (70px*2));
+  max-width: calc(1280px - (70px * 2));
   margin: 0 auto;
   padding: 110px 70px;
 }
   @media screen and (max-width: 1023px) {
     .content {
-      max-width: calc(768px - (50px*2));
+      max-width: calc(768px - (50px * 2));
       padding: 90px 50px;
     }
   }
   @media screen and (max-width: 767px) {
     .content {
-      max-width: calc(320px - (18px*2));
+      max-width: calc(320px - (18px * 2));
       padding: 70px 18px;
     }
   }
@@ -26,7 +26,7 @@
   }
   @media screen and (max-width: 767px) {
     .content_mini {
-      max-width: calc(320px - (14px*2));
+      max-width: calc(320px - (14px * 2));
       padding: 70px 14px;
     }
   }

@@ -5,7 +5,7 @@ import SecondaryHeader from "../SecondaryHeader/SecondaryHeader";
 function Content(props) {
   return (
     <>
-      <div className={`content ${props.mini && 'content_mini'}`}>
+      <div className={`content ${props.mini ? 'content_mini' : ''}`}>
         <SecondaryHeader techs={props.techs} title={props.title}></SecondaryHeader>
         {props.children}
       </div>

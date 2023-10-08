@@ -16,11 +16,10 @@ function SearchForm(props) {
             type="text"
             placeholder="Фильм"
             required
-            noValidate
           />
           <button className="search__button" type="submit">Найти</button>
+          <FilterCheckbox text='Короткометражки' />
         </form>
-        <FilterCheckbox text='Короткометражки' />
       </div>
     </section>
   )

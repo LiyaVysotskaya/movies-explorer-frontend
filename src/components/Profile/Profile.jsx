@@ -1,12 +1,19 @@
 import React from "react";
 import './Profile.css';
 import Header from "../Header/Header";
+import { useNavigate } from 'react-router-dom';
 
 function Profile(props) {
+  const navigate = useNavigate();
+
+  const onLogoutClick = () => {
+    navigate('/');
+  }
+
   return (
     <>
       <Header loggedIn={props.loggedIn} pageName={'profile'} />
-      <main className="main_profile">
+      <main className="main main_profile">
         <section className="profile">
           <h1 className="profile__title">{`Привет, ${props.name || 'Виталий'}!`}</h1>
           <form className="profile__form" method="POST" onSubmit={props.handleSubmit}>
@@ -21,7 +28,6 @@ function Profile(props) {
                   type="text"
                   minLength="2"
                   required
-                  noValidate
                 />
                 <span className='profile__input-error'></span>
               </label>
@@ -36,13 +42,12 @@ function Profile(props) {
                   type="email"
                   minLength="2"
                   required
-                  noValidate
                 />
                 <span className='profile__input-error'></span>
               </label>
             </fieldset>
             <button className="profile__button" type="submit">Редактировать</button>
-            <button className="profile__button profile__button_logout" type="submit">Выйти из аккаунта</button>
+            <button className="profile__button profile__button_logout" type="button" onClick={onLogoutClick}>Выйти из аккаунта</button>
           </form>
         </section>
       </main>

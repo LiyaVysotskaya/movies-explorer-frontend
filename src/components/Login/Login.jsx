@@ -6,10 +6,10 @@ import AuthForm from "../AuthForm/AuthForm";
 
 function Login() {
   return(
-    <main className="main_login">
+    <main className="main main_login">
 
       <section className="login">
-        <Link className='auth__link-logo' to='/' ><img className="auth__logo" src={logo} alt="Логотип диплома" /></Link>
+        <Link className='login__link-logo' to='/' ><img className="login__logo" src={logo} alt="Логотип диплома" /></Link>
         <h1 className="login__title">Рады видеть!</h1>
         <AuthForm
           login={true}
@@ -18,8 +18,8 @@ function Login() {
           // handleChange={handleChange}
           // password={values.password}
           buttonText='Войти' />
-        <Link className='auth__link' to='/signin'>Ещё не зарегистрированы?
-          <span className="auth__link auth__link-black">Регистрация</span>
+        <Link className='login__link' to='/signup'>Ещё не зарегистрированы?
+          <span className="login__link-text">Регистрация</span>
         </Link>
       </section>
 

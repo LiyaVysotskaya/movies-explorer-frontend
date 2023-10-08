@@ -25,47 +25,49 @@ function Navigation(props) {
 
   if (props.loggedIn) {
     return <>
-      <button className={`navigation__menu-button navigation__menu-button_${isMenuOpen ? "close" : "open"}`} onClick={onMenuClick}></button>
-      {(width >= 1024 || isMenuOpen) &&
-        <nav className="navigation">
-          <ul className="navigation__list">
-            {width < 1024 &&
+      <div className="navigation">
+        <button
+          className={`navigation__menu-button navigation__menu-button_${isMenuOpen ? "close" : "open"}`}
+          type="button"
+          onClick={onMenuClick}>
+        </button>
+        {(width >= 1024 || isMenuOpen) &&
+          <nav className="navigation__container">
+            <ul className="navigation__list">
+              {width < 1024 &&
+                <li className="navigation__element">
+                  <Link
+                    className={`navigation__link ${props.pageName === 'main' && isMenuOpen && 'navigation__link_active'}`}
+                    to='/'>
+                    Главная
+                  </Link>
+                </li>}
               <li className="navigation__element">
                 <Link
-                  className={`navigation__link ${props.pageName === 'main' && isMenuOpen && 'navigation__link_active'}`}
-                  to='/'
-                  target="blank">
-                  Главная
+                  className={`navigation__link ${props.pageName === 'movies' && isMenuOpen && 'navigation__link_active'}`}
+                  to='/movies'>
+                  Фильмы
                 </Link>
-              </li>}
-            <li className="navigation__element">
-              <Link
-                className={`navigation__link ${props.pageName === 'movies' && isMenuOpen &&'navigation__link_active'}`}
-                to='/movies'
-                target="blank">
-                Фильмы
-              </Link>
-            </li>
-            <li className="navigation__element">
-              <Link
-                className={`navigation__link ${props.pageName === 'saved-movies' && isMenuOpen && 'navigation__link_active'}`}
-                to='/saved-movies'
-                target="blank">
-                Сохранённые фильмы
-              </Link>
-            </li>
-            <li className="navigation__element">
-              <Link
-                className={`navigation__link navigation__link_account ${props.pageName === 'profile' && isMenuOpen && 'navigation__link_active'}`}
-                to='/profile'
-                target="blank">
-                Аккаунт
-                <div className={`navigation__logo-account ${location.pathname === '/' ? '' : 'navigation__logo-account_white'}`}></div>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      }
+              </li>
+              <li className="navigation__element">
+                <Link
+                  className={`navigation__link ${props.pageName === 'saved-movies' && isMenuOpen && 'navigation__link_active'}`}
+                  to='/saved-movies'>
+                  Сохранённые фильмы
+                </Link>
+              </li>
+              <li className="navigation__element">
+                <Link
+                  className={`navigation__link navigation__link_account ${props.pageName === 'profile' && isMenuOpen && 'navigation__link_active'}`}
+                  to='/profile'>
+                  Аккаунт
+                  <div className={`navigation__logo-account ${location.pathname === '/' ? '' : 'navigation__logo-account_white'}`}></div>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        }
+      </div>
     </>
   } else {
     return (

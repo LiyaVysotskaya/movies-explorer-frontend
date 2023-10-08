@@ -6,10 +6,10 @@ import AuthForm from "../AuthForm/AuthForm";
 
 function Register(props) {
   return (
-    <main className="main_register">
+    <main className="main main_register">
 
       <section className="register">
-        <Link className='auth__link-logo' to='/' ><img className="auth__logo" src={logo} alt="Логотип диплома" /></Link>
+        <Link className='register__link-logo' to='/'><img className="register__logo" src={logo} alt="Логотип диплома" /></Link>
         <h1 className="register__title">Добро пожаловать!</h1>
         <AuthForm
           register={true}
@@ -18,8 +18,8 @@ function Register(props) {
           // handleChange={handleChange}
           // password={values.password}
           buttonText='Зарегистрироваться' />
-        <Link className='auth__link' to='/signin'>Уже зарегистрированы?
-          <span className="auth__link auth__link-black">Войти</span>
+        <Link className='register__link' to='/signin'>Уже зарегистрированы?
+          <span className="register__link-text">Войти</span>
         </Link>
       </section>
 

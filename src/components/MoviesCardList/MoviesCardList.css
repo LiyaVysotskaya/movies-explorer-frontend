@@ -1,5 +1,5 @@
 .movies {
-  max-width: calc(1280px - (70px*2));
+  max-width: calc(1280px - (70px * 2));
   width: 100%;
   margin: 80px auto;
   display: flex;
@@ -9,12 +9,12 @@
 }
   @media screen and (max-width: 1023px) {
     .movies {
-      width: calc(768px - (30px*2));
+      width: calc(768px - (30px * 2));
     }
   }
   @media screen and (max-width: 767px) {
     .movies {
-      width: calc(320px - (10px*2));
+      width: calc(320px - (10px * 2));
       margin-top: 50px;
     }
   }

@@ -3,11 +3,11 @@ import './AuthForm.css';
 
 function AuthForm(props) {
   return (
-    <form className="auth__form" method="POST" onSubmit={props.handleSubmit}>
+    <form className="auth" method="POST" onSubmit={props.handleSubmit}>
       <fieldset className="auth__fieldset">
         {props.register &&
           <label className="auth__label">
-            <p className="auth__text">Имя</p>
+            <span className="auth__text">Имя</span>
             <input
               className="auth__input"
               value={props.username}
@@ -16,14 +16,13 @@ function AuthForm(props) {
               type="text"
               minLength="2"
               required
-              noValidate
             />
             <span className='auth__input-error'></span>
           </label>
         }
 
         <label className="auth__label">
-          <p className="auth__text">E-mail</p>
+          <span className="auth__text">E-mail</span>
           <input
             className="auth__input"
             value={props.email}
@@ -32,12 +31,11 @@ function AuthForm(props) {
             type="email"
             minLength="2"
             required
-            noValidate
           />
           <span className='auth__input-error'></span>
         </label>
         <label className="auth__label">
-          <p className="auth__text">Пароль</p>
+          <span className="auth__text">Пароль</span>
           <input
             className="auth__input"
             value={props.password}
@@ -47,7 +45,6 @@ function AuthForm(props) {
             minLength="3"
             maxLength="20"
             required
-            noValidate
           />
           <span className='auth__input-error'></span>
         </label>

@@ -135,6 +135,7 @@
   line-height: normal;
   background-color: inherit;
   border: none;
+  cursor: pointer;
 }
   .profile__button:last-of-type {
     margin-bottom: 0;
