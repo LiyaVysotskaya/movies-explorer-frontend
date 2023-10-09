@@ -4,7 +4,7 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList(props) {
   return (
-    <section className="movies">
+    <div className="movies">
       <ul className="movies__list">
         {props.moviesList.map(movie =>
           <MoviesCard
@@ -18,7 +18,7 @@ function MoviesCardList(props) {
       </ul>
       {!props.endOfList &&
         <button className="movies__button-more" type="button" onClick={props.onShowMoreClick}>Ещё</button>}
-    </section>
+    </div>
   )
 }
 

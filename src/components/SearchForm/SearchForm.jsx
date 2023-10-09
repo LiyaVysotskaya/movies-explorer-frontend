@@ -4,7 +4,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm(props) {
   return (
-    <section className="search">
+    <div className="search">
       <div className="search__container">
         <div className="search__logo"></div>
         <form className="search__form" name="searchForm" onSubmit={props.onSubmit}>
@@ -21,7 +21,7 @@ function SearchForm(props) {
           <FilterCheckbox text='Короткометражки' />
         </form>
       </div>
-    </section>
+    </div>
   )
 }
 

@@ -15,7 +15,7 @@ import NotFoundPage from '../NotFoundPage/NotFoundPage';
 // import logo from '../../images/logo.svg';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   return (
     <div className="page__container">

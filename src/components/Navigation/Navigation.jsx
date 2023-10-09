@@ -71,12 +71,15 @@ function Navigation(props) {
     </>
   } else {
     return (
-      <nav className="navigation navigation__unauthorized">
-        <ul className='navigation__list_unauthorized'>
-          <li><Link className='navigation__link navigation__link_signup' to='/signup'>Регистрация</Link></li>
-          <li><Link className='navigation__link navigation__link_signin' to='/signin'>Войти</Link></li>
-        </ul>
-      </nav>
+      <div className="navigation">
+        <nav className="navigation__container navigation__container_unauthorized">
+          <ul className='navigation__unauthorized'>
+            <li><Link className='navigation__link navigation__link_signup' to='/signup'>Регистрация</Link></li>
+            <li><Link className='navigation__link navigation__link_signin' to='/signin'>Войти</Link></li>
+          </ul>
+        </nav>
+      </div>
+
     )
   }
 }

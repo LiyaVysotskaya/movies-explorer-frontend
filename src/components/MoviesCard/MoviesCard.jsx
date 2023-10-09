@@ -35,7 +35,7 @@ function MoviesCard(props) {
             {!props.saved && 'Сохранить'}
           </button>
         <div className="movies__basement">
-          <p className="movies__name">{props.name}</p>
+          <h2 className="movies__name">{props.name}</h2>
           <span className="movies__time">1ч 17м</span>
         </div>
       </article>
