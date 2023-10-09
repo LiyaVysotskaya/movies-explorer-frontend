@@ -114,8 +114,12 @@
   background-position: center;
   background-color: inherit;
   border: none;
-  cursor: pointer;
+  transition: opacity .4s;
 }
+  .movies__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 
 .movies__button_saved {
   background-image: url('../../images/saved-btn.svg');

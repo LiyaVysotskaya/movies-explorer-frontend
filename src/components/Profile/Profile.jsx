@@ -27,6 +27,8 @@ function Profile(props) {
                   name="username"
                   type="text"
                   minLength="2"
+                  maxLength='16'
+                  placeholder="Имя"
                   required
                 />
                 <span className='profile__input-error'></span>
@@ -41,6 +43,7 @@ function Profile(props) {
                   name="email"
                   type="email"
                   minLength="2"
+                  placeholder="E-mail"
                   required
                 />
                 <span className='profile__input-error'></span>

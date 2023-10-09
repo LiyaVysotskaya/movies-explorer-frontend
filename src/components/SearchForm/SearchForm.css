@@ -101,6 +101,10 @@
   border: none;
   outline: none;
 }
+  .search__input:focus {
+    outline: 1px solid #F3C1F8;
+    box-shadow: 0 0 7px rgb(199, 56, 235);
+  }
   @media screen and (max-width: 1023px) {
     .search__input {
       max-width: 338px;
@@ -128,8 +132,12 @@
   text-align: center;
   border: none;
   position: relative;
-  /* border-right: 1px solid rgba(0, 0, 0, .2); */
+  transition: opacity .4s;
 }
+  .search__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 
 .search__button::after {
   content: '';

@@ -108,7 +108,12 @@
   font-weight: 500;
   line-height: normal;
   text-decoration: none;
+  transition: opacity .4s;
 }
+  .student__link-github:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 
 .student__photo {
   width: 270px;

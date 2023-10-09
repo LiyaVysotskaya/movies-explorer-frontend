@@ -95,10 +95,15 @@
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+  transition: opacity .4s;
 }
-.footer__link:last-of-type {
-  padding-right: 0;
-}
+  .footer__link:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  .footer__link:last-of-type {
+    padding-right: 0;
+  }
   @media screen and (max-width: 767px) {
     .footer__link {
       padding-right: 0;

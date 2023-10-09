@@ -29,6 +29,10 @@
 .switch__input {
   display: none;
 }
+  .switch__input:focus {
+    outline: 1px solid #F3C1F8;
+    box-shadow: 0 0 7px rgb(199, 56, 235);
+  }
 
 .switch__slider {
   width: 34px;

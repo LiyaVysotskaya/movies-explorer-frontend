@@ -94,6 +94,10 @@
   border: none;
   outline: none;
 }
+  .profile__input:focus {
+    outline: 1px solid #F3C1F8;
+    box-shadow: 0 0 7px rgb(199, 56, 235);
+  }
 
 .profile__input-error {
   height: 12px;
@@ -135,8 +139,12 @@
   line-height: normal;
   background-color: inherit;
   border: none;
-  cursor: pointer;
+  transition: opacity .4s;
 }
+  .profile__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
   .profile__button:last-of-type {
     margin-bottom: 0;
   }

@@ -55,8 +55,10 @@
   line-height: normal;
   border-radius: 6px;
   border: none;
+  transition: opacity .4s;
 }
-  .movies__button-more:hover {
+  .movies__button-more {
+    opacity: 0.8;
     cursor: pointer;
   }
   @media screen and (max-width: 1023px) {

@@ -59,6 +59,10 @@
   border: none;
   outline: none;
 }
+  .auth__input:focus {
+    outline: 1px solid #F3C1F8;
+    box-shadow: 0 0 7px rgb(199, 56, 235);
+  }
 
 .auth__input_invalid {
   color: #FF4062;

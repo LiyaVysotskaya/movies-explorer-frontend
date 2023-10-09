@@ -15,6 +15,8 @@ function AuthForm(props) {
               name="username"
               type="text"
               minLength="2"
+              maxLength='16'
+              placeholder="Имя"
               required
             />
             <span className='auth__input-error'></span>
@@ -30,6 +32,7 @@ function AuthForm(props) {
             name="email"
             type="email"
             minLength="2"
+            placeholder="E-mail"
             required
           />
           <span className='auth__input-error'></span>
@@ -44,6 +47,7 @@ function AuthForm(props) {
             type="password"
             minLength="3"
             maxLength="20"
+            placeholder="Пароль"
             required
           />
           <span className='auth__input-error'></span>

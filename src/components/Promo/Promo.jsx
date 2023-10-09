@@ -1,6 +1,6 @@
 import React from 'react';
 import './Promo.css';
-import landingLogo from '../../images/landing-logo.png';
+import landingLogo from '../../images/landing-logo.svg';
 
 function Promo() {
   return (
