@@ -1,0 +1,145 @@
+.movies__element {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 360px;
+  width: 100%;
+  max-height: 231px;
+  height: 100%;
+  position: relative;
+  align-items: center;
+  background-color: inherit;
+  overflow: hidden;
+}
+
+.movies__image {
+  width: 360px;
+  height: 201px;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+  .movies__image:hover {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .movies__image {
+      width: 339px;
+      height: 190px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .movies__image {
+      width: 300px;
+      height: 168px;
+    }
+  }
+
+.movies__basement {
+  max-width: 360px;
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  @media screen and (max-width: 1023px) {
+    .movies__basement {
+      max-width: 339px;
+      margin-top: 25px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .movies__basement {
+      max-width: 300px;
+      margin-top: 16px;
+    }
+  }
+
+.movies__name {
+  margin: 0;
+  padding: 0 0 0 14px;
+  color: #000;
+  font-family: inherit;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+  @media screen and (max-width: 1023px) {
+    .movies__name {
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .movies__name {
+      font-size: 12px;
+    }
+  }
+
+.movies__time {
+  margin: 0 18px 0 0;
+  padding: 3px 4px;
+  color: #A0A0A0;
+  text-align: center;
+  font-family: inherit;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+  border-radius: 3px;
+  background: #F9F9F9;
+}
+  @media screen and (max-width: 1023px) {
+    .movies__time {
+      margin: 0;
+    }
+  }
+
+.movies__container {
+  position: relative;
+}
+.movies__container:hover .movies__button {
+  visibility: visible;
+}
+
+.movies__button {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: inherit;
+  border: none;
+  transition: opacity .4s;
+}
+  .movies__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+.movies__button_saved {
+  background-image: url('../../images/saved-btn.svg');
+}
+
+.movies__button_add {
+  width: 72px;
+  visibility: hidden;
+  background-color: #F9F9F9;
+  border-radius: 30px;
+  color: #000;
+  text-align: center;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 9px;
+}
+
+.movies__button_delete {
+  visibility: hidden;
+  background-image: url('../../images/delete-btn.svg');
+}

@@ -1,0 +1,125 @@
+.auth {
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+  @media screen and (max-width: 767px) {
+    .auth__form {
+      max-width: 260px;
+    }
+  }
+
+.auth__fieldset {
+  max-width: 396px;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.auth__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__label:last-of-type {
+  margin-bottom: 0;
+}
+
+.auth__text {
+  margin: 0 0 10px 0;
+  padding: 0;
+  color: #A0A0A0;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.auth__input {
+  max-width: 396px;
+  width: 100%;
+  min-height: 46px;
+  margin: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #F9F9F9;
+  color: #000;
+  font-family: inherit;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  outline: none;
+}
+  .auth__input:focus {
+    outline: 1px solid #F3C1F8;
+    box-shadow: 0 0 7px rgb(199, 56, 235);
+  }
+
+.auth__input_invalid {
+  color: #FF4062;
+}
+
+.auth__input-error {
+  height: 12px;
+  margin-top: 8px;
+  color: #FF4062;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: visible;
+}
+
+.auth__input-error_active {
+  visibility: visible;
+}
+
+.auth__button {
+  width: 396px;
+  height: 45px;
+  margin: 69px 0 16px;
+  padding: 0;
+  align-self: center;
+  justify-content: space-around;
+  color: #FFF;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background-color: #000;
+  border: none;
+  border-radius: 3px;
+  transition: opacity .4s;
+}
+  .auth__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 767px) {
+    .auth__button {
+      width: 260px;
+      margin: 157px 0 14px;
+      font-size: 12px;
+    }
+  }
+
+.auth__button_login {
+  margin-top: 159px;
+}
+  @media screen and (max-width: 767px) {
+    .auth__button_login {
+      margin-top: 247px;
+    }
+  }

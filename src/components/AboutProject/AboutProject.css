@@ -1,0 +1,149 @@
+.about {
+  min-height: 608px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1023px) {
+  .about {
+    min-height: 585px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about {
+    min-height: 641px;
+  }
+}
+
+.about__container-description {
+  width: 100%;
+  margin: 70px 0 110px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  gap: 26px 40px;
+}
+  @media screen and (max-width: 1023px) {
+    .about__container-description {
+      margin-bottom: 93px;
+      gap: 22px 30px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .about__container-description {
+      margin: 60px 0;
+      grid-template-columns: 1fr;
+      row-gap: 16px;
+    }
+  }
+
+.about__text {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+  @media screen and (max-width: 767px) {
+    .about__text {
+      min-height: 44px;
+      font-size: 18px;
+      letter-spacing: -0.72px;
+    }
+    .about__text:last-of-type {
+      margin-top: 40px;
+      grid-row: 3;
+    }
+  }
+
+.about__description {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+  @media screen and (max-width: 1023px) {
+    .about__description {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .about__description {
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+
+.about__container-deadlines {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 228px 1fr;
+  row-gap: 14px;
+  align-items: center;
+  justify-content: center;
+}
+  @media screen and (max-width: 1023px) {
+    .about__container-deadlines {
+      grid-template-columns: 140px 1fr;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .about__container-deadlines {
+      grid-template-columns: 100px 1fr;
+      row-gap: 10px;
+    }
+  }
+
+.about__time {
+  width: inherit;
+  margin: 0;
+  padding: 9px 0;
+  color: #000;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #F2F2F2;
+}
+  @media screen and (max-width: 767px) {
+    .about__time {
+      font-size: 11px;
+      padding: 11px 0;
+    }
+  }
+
+.about__time-dark {
+  color: #FFF;
+  background-color: #000;
+}
+
+.about__stage {
+  width: inherit;
+  margin: 0;
+  padding: 0;
+  color: #A0A0A0;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+}
+  @media screen and (max-width: 767px) {
+    .about__stage {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }

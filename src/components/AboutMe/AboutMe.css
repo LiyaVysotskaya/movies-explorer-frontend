@@ -1,0 +1,145 @@
+.student {
+  margin: 10px auto 0;
+  min-height: 644px;
+  box-sizing: border-box;
+  position: relative;
+}
+  @media screen and (max-width: 1023px) {
+    .student {
+      min-height: 604px;
+      margin-top: 0;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .student {
+      min-height: 904px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+.student__text {
+  margin: 66px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+}
+  @media screen and (max-width: 1023px) {
+    .student__text {
+      font-size: 40px;
+      line-height: 40px;
+      letter-spacing: -1.6px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .student__text {
+      margin-top: 40px;
+      font-size: 30px;
+      line-height: normal;
+      letter-spacing: -1.2px;
+    }
+  }
+
+.student__introducing {
+  margin: 18px 0 0 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+  @media screen and (max-width: 1023px) {
+    .student__introducing {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .student__introducing {
+      margin-top: 20px;
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+
+.student__description {
+  width: 600px;
+  margin: 26px 0 99px 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+  @media screen and (max-width: 1023px) {
+    .student__description {
+      margin: 20px 0 87px 0;
+      width: 364px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .student__description {
+      margin-bottom: 40px;
+      width: 292px;
+      font-size: 11px;
+      line-height: 16px;
+    }
+  }
+
+.student__link-github {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  transition: opacity .4s;
+}
+  .student__link-github:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
+
+.student__photo {
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  position: absolute;
+  top: 217px;
+  right: 70px;
+}
+  @media screen and (max-width: 1023px) {
+    .student__photo {
+      width: 255px;
+      height: 307px;
+      top: 207px;
+      right: 50px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .student__photo {
+      width: 292px;
+      height: 352px;
+      margin-top: 60px;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  }
