@@ -9,7 +9,7 @@ import { apiMain } from "../../utils/MainApi";
 function Register(props) {
   const navigate = useNavigate();
 
-  const { values, handleChange } = useFormAndValidation({
+  const { values, handleChange, errors  } = useFormAndValidation({
     username: '',
     email: '',
     password: ''
@@ -42,9 +42,11 @@ function Register(props) {
         <AuthForm
           register={true}
           handleSubmit={handleSubmit}
+          username={values.username}
           email={values.email}
           handleChange={handleChange}
           password={values.password}
+          error={errors}
           buttonText='Зарегистрироваться' />
         <Link className='register__link' to='/signin'>Уже зарегистрированы?
           <span className="register__link-text">Войти</span>

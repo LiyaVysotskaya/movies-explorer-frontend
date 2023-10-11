@@ -9,7 +9,7 @@ import { apiMain } from "../../utils/MainApi";
 function Login(props) {
   const navigate = useNavigate();
 
-  const { values, handleChange, resetForm } = useFormAndValidation({
+  const { values, handleChange, errors, resetForm } = useFormAndValidation({
     email: '',
     password: ''
   })
@@ -45,6 +45,7 @@ function Login(props) {
           email={values.email}
           handleChange={handleChange}
           password={values.password}
+          error={errors}
           buttonText='Войти' />
         <Link className='login__link' to='/signup'>Ещё не зарегистрированы?
           <span className="login__link-text">Регистрация</span>

@@ -99,6 +99,10 @@
     box-shadow: 0 0 7px rgb(199, 56, 235);
   }
 
+.profile__input_invalid {
+  color: #FF4062;
+}
+
 .profile__input-error {
   height: 12px;
   margin-top: 8px;

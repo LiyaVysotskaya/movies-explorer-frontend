@@ -47,6 +47,14 @@ function App() {
     });
   }
 
+  function handleUpdateUser(data) {
+    apiMain.editProfileInfo(data)
+    .then((res) => {
+      setCurrentUser(res);
+    })
+    .catch(console.error);
+  }
+
   function handleLogin() {
     setLoggedIn(true);
     loadData();
@@ -81,6 +89,7 @@ function App() {
             <ProtectedRoute
               element={Profile}
               loggedIn={loggedIn}
+              onUpdateUser={handleUpdateUser}
               handleLogout={handleLogout}
             />
           } />

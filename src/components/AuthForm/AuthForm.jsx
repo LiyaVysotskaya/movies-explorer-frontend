@@ -9,9 +9,10 @@ function AuthForm(props) {
           <label className="auth__label">
             <span className="auth__text">Имя</span>
             <input
-              className="auth__input"
+            className={`auth__input ${props.error.username && 'auth__input_invalid'}`}
               value={props.username}
               onChange={props.handleChange}
+              error={props.error.username}
               name="username"
               type="text"
               minLength="2"
@@ -19,30 +20,32 @@ function AuthForm(props) {
               placeholder="Имя"
               required
             />
-            <span className='auth__input-error'></span>
+            <span className={`auth__input-error  ${props.error.username && 'auth__input-error_active'}`}>{props.error.username}</span>
           </label>
         }
 
         <label className="auth__label">
           <span className="auth__text">E-mail</span>
           <input
-            className="auth__input"
+            className={`auth__input ${props.error.email && 'auth__input_invalid'}`}
             value={props.email}
             onChange={props.handleChange}
+            error={props.error.email}
             name="email"
             type="email"
             minLength="2"
             placeholder="E-mail"
             required
           />
-          <span className='auth__input-error'></span>
+          <span className={`auth__input-error  ${props.error.email && 'auth__input-error_active'}`}>{props.error.email}</span>
         </label>
-        <label className="auth__label">
+       <label className="auth__label">
           <span className="auth__text">Пароль</span>
           <input
-            className="auth__input"
+            className={`auth__input ${props.error.password && 'auth__input_invalid'}`}
             value={props.password}
             onChange={props.handleChange}
+            error={props.error.password}
             name="password"
             type="password"
             minLength="3"
@@ -50,7 +53,7 @@ function AuthForm(props) {
             placeholder="Пароль"
             required
           />
-          <span className='auth__input-error'></span>
+          <span className={`auth__input-error  ${props.error.password && 'auth__input-error_active'}`}>{props.error.password}</span>
         </label>
       </fieldset>
       <button className={`auth__button ${props.login && 'auth__button_login'}`} type="submit">{props.buttonText}</button>
