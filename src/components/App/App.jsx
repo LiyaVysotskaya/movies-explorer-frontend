@@ -10,10 +10,52 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import { apiMain } from '../../utils/MainApi';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [movies, setMovies] = React.useState([]);
+
+  React.useEffect(() => {
+    tokenCheck();
+  }, [])
+
+  function loadData(){
+    apiMain.getUserData()
+    .then(data => {
+      setCurrentUser(data);
+    })
+    .catch(console.error);
+
+    apiMain.getMoviesArray()
+    .then(data => {
+      setMovies(data);
+    })
+    .catch(console.error);}
+
+  function tokenCheck() {
+    apiMain.checkToken()
+    .then(res => {
+      setLoggedIn(!!res);
+      if(res){
+        loadData();
+      }
+    })
+    .catch(() => {
+      setLoggedIn(false);
+    });
+  }
+
+  function handleLogin() {
+    setLoggedIn(true);
+    loadData();
+  }
+
+  function handleLogout() {
+    setLoggedIn(false);
+    apiMain.logout();
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -39,10 +81,11 @@ function App() {
             <ProtectedRoute
               element={Profile}
               loggedIn={loggedIn}
+              handleLogout={handleLogout}
             />
           } />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<Register onLoggedIn={handleLogin} />} />
+          <Route path="/signin" element={<Login onLoggedIn={handleLogin} />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </div>
