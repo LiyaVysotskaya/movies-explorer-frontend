@@ -9,7 +9,7 @@ import { apiMain } from "../../utils/MainApi";
 function Register(props) {
   const navigate = useNavigate();
 
-  const { values, handleChange, errors  } = useFormAndValidation({
+  const { values, handleChange, errors } = useFormAndValidation({
     username: '',
     email: '',
     password: ''
@@ -19,6 +19,7 @@ function Register(props) {
     e.preventDefault();
     apiMain.register(values.username, values.email, values.password)
       .then(() => {
+        console.log(values.username, values.email, values.password)
         apiMain.login(values.email, values.password)
         .then(() => {
           props.onLoggedIn();

@@ -3,6 +3,7 @@ import './Profile.css';
 import Header from "../Header/Header";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { emailRegEx } from "../../utils/constants";
 
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -35,8 +36,8 @@ function Profile(props) {
       <Header loggedIn={props.loggedIn} handleLogout={props.handleLogout} pageName={'profile'} />
       <main className="main main_profile">
         <section className="profile">
-          <h1 className="profile__title">{`Привет, ${values.username || 'Виталий'}!`}</h1>
-          <form className="profile__form" method="POST" onSubmit={handleSubmit}>
+          <h1 className="profile__title">{`Привет, ${currentUser.name || 'Виталий'}!`}</h1>
+          <form className="profile__form" method="POST" onSubmit={handleSubmit} noValidate>
             <fieldset className="profile__fieldset">
               <label className="profile__label">
                 <span className="profile__text">Имя</span>
@@ -44,7 +45,6 @@ function Profile(props) {
                   className={`profile__input ${errors.username && 'profile__input_invalid'}`}
                   value={values.username}
                   onChange={handleChange}
-                  error={errors.username}
                   name="username"
                   type="text"
                   minLength="2"
@@ -61,11 +61,11 @@ function Profile(props) {
                   className={`profile__input ${errors.email && 'profile__input_invalid'}`}
                   value={values.email}
                   onChange={handleChange}
-                  error={errors.email}
                   name="email"
                   type="email"
                   minLength="2"
                   placeholder="E-mail"
+                  pattern={emailRegEx}
                   required
                 />
                 <span className={`profile__input-error  ${errors.email && 'auth__input-error_active'}`}>{errors.email}</span>

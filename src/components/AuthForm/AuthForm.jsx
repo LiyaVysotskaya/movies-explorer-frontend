@@ -1,9 +1,10 @@
 import React from "react";
 import './AuthForm.css';
+import { emailRegEx } from "../../utils/constants";
 
 function AuthForm(props) {
   return (
-    <form className="auth" method="POST" onSubmit={props.handleSubmit}>
+    <form className="auth" method="POST" onSubmit={props.handleSubmit} noValidate>
       <fieldset className="auth__fieldset">
         {props.register &&
           <label className="auth__label">
@@ -12,7 +13,6 @@ function AuthForm(props) {
             className={`auth__input ${props.error.username && 'auth__input_invalid'}`}
               value={props.username}
               onChange={props.handleChange}
-              error={props.error.username}
               name="username"
               type="text"
               minLength="2"
@@ -30,11 +30,11 @@ function AuthForm(props) {
             className={`auth__input ${props.error.email && 'auth__input_invalid'}`}
             value={props.email}
             onChange={props.handleChange}
-            error={props.error.email}
             name="email"
             type="email"
             minLength="2"
             placeholder="E-mail"
+            pattern={emailRegEx}
             required
           />
           <span className={`auth__input-error  ${props.error.email && 'auth__input-error_active'}`}>{props.error.email}</span>
@@ -45,7 +45,6 @@ function AuthForm(props) {
             className={`auth__input ${props.error.password && 'auth__input_invalid'}`}
             value={props.password}
             onChange={props.handleChange}
-            error={props.error.password}
             name="password"
             type="password"
             minLength="3"
