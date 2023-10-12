@@ -73,6 +73,10 @@ function Profile(props) {
                 <span className={`profile__input-error  ${errors.email && 'auth__input-error_active'}`}>{errors.email}</span>
               </label>
             </fieldset>
+            <span
+              className={`profile__error ${errorActive && 'profile__error_active'}`}>
+              {props.errorText === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При обновлении профиля произошла ошибка.'}
+            </span>
             <button className="profile__button" type="submit">Редактировать</button>
             <button className="profile__button profile__button_logout" type="button" onClick={props.handleLogout}>Выйти из аккаунта</button>
           </form>
