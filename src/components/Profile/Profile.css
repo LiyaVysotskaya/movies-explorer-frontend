@@ -158,6 +158,17 @@
     }
   }
 
+.profile__button_inactive {
+  background-color: #ffffff;
+  color: #000000;
+  opacity: 0.3;
+  border: 1px solid #000000;
+}
+  .profile__button_inactive:hover {
+    opacity: 0.3;
+    cursor: default;
+  }
+
 .profile__button_logout {
   color: #FF4062;
 }

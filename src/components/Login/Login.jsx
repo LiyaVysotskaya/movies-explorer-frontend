@@ -9,7 +9,11 @@ import { apiMain } from "../../utils/MainApi";
 function Login(props) {
   const navigate = useNavigate();
 
-  const { values, handleChange, errors, resetForm } = useFormAndValidation({
+  React.useEffect(() => {
+    props.setError(false)
+  }, [])
+
+  const { values, handleChange, errors, resetForm, isValid } = useFormAndValidation({
     email: '',
     password: ''
   })
@@ -29,6 +33,7 @@ function Login(props) {
           navigate('/movies', { replace: true });
         })
         .catch((err) => {
+          props.setError(true)
           console.log(`Ошибка авторизации ${err}`)
         })
     }
@@ -46,6 +51,7 @@ function Login(props) {
           handleChange={handleChange}
           password={values.password}
           error={errors}
+          isValid={isValid}
           buttonText='Войти' />
         <Link className='login__link' to='/signup'>Ещё не зарегистрированы?
           <span className="login__link-text">Регистрация</span>

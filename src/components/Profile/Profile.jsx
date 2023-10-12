@@ -4,11 +4,13 @@ import Header from "../Header/Header";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { emailRegEx } from "../../utils/constants";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
+  const errorActive = React.useContext(ErrorContext);
 
-  const { values, handleChange, errors, setValues } = useFormAndValidation({
+  const { values, handleChange, errors, setValues, isValid } = useFormAndValidation({
     username: '',
     email: ''
   })
@@ -52,7 +54,7 @@ function Profile(props) {
                   placeholder="Имя"
                   required
                 />
-                <span className={`profile__input-error  ${errors.username && 'auth__input-error_active'}`}>{errors.username}</span>
+                <span className={`profile__input-error ${errors.username && 'auth__input-error_active'}`}>{errors.username}</span>
               </label>
 
               <label className="profile__label">

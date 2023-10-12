@@ -5,11 +5,17 @@ import './Register.css';
 import AuthForm from "../AuthForm/AuthForm";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { apiMain } from "../../utils/MainApi";
+import { ErrorContext } from "../../contexts/ErrorContext";
 
 function Register(props) {
   const navigate = useNavigate();
+  const errorActive = React.useContext(ErrorContext);
 
-  const { values, handleChange, errors } = useFormAndValidation({
+  React.useEffect(() => {
+    props.setError(false)
+  }, [])
+
+  const { values, handleChange, errors, isValid } = useFormAndValidation({
     username: '',
     email: '',
     password: ''
@@ -19,17 +25,18 @@ function Register(props) {
     e.preventDefault();
     apiMain.register(values.username, values.email, values.password)
       .then(() => {
-        console.log(values.username, values.email, values.password)
         apiMain.login(values.email, values.password)
         .then(() => {
           props.onLoggedIn();
           navigate('/movies', { replace: true });
         })
         .catch((err) => {
+          props.setError(true)
           console.log(`Ошибка авторизации ${err}`)
         })
       })
       .catch((err) => {
+        props.setError(true)
         console.log(`Ошибка регистрации ${err}`)
       })
   }
@@ -48,6 +55,8 @@ function Register(props) {
           handleChange={handleChange}
           password={values.password}
           error={errors}
+          isValid={isValid}
+          setError={props.setError}
           buttonText='Зарегистрироваться' />
         <Link className='register__link' to='/signin'>Уже зарегистрированы?
           <span className="register__link-text">Войти</span>
