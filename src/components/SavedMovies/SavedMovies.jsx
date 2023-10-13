@@ -2,7 +2,7 @@ import React from "react";
 import './SavedMovies.css';
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { movies, devises } from "../../utils/constants";
+import { devises } from "../../utils/constants";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -29,12 +29,12 @@ function SavedMovies(props) {
   const loadData = (skip, count) => {
     let end = skip + count;
 
-    if (movies.filter(x => x.saved).length < end) {
-      end = movies.length;
+    if (moviesList.filter(x => x.saved).length < end) {
+      end = moviesList.length;
       setEndOfList(true);
     }
 
-    const loadedMovies = movies.filter(x => x.saved).slice(skip, end);
+    const loadedMovies = moviesList.filter(x => x.saved).slice(skip, end);
 
     setMoviesList(moviesList.concat(loadedMovies));
   }

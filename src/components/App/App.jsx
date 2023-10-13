@@ -11,6 +11,7 @@ import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { apiMain } from '../../utils/MainApi';
+import { apiMovies } from '../../utils/MoviesApi';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState(null);
@@ -28,7 +29,7 @@ function App() {
       })
       .catch(console.error);
 
-    apiMain.getMoviesArray()
+    apiMovies.getMoviesArray()
       .then(data => {
         setMovies(data);
       })

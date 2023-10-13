@@ -4,10 +4,10 @@ export default class ApiMovies {
     this._headers = settings.headers;
   }
 
-  getMovies() {
-    return fetch(`${this._url}/movies`, {
+  getMoviesArray() {
+    return fetch(`${this._url}`, {
       headers: this._headers,
-      credentials: 'include'
+      credentials: 'include',
     })
       .then(this._checkResponse);
   }
@@ -24,7 +24,7 @@ export default class ApiMovies {
 const apiMovies = new ApiMovies({
   baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 })
 

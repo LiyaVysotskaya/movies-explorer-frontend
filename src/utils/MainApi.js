@@ -12,13 +12,13 @@ export default class ApiMain {
       .then(this._checkResponse);
   }
 
-  getMoviesArray() {
-    return fetch(`${this._url}/movies`, {
-      headers: this._headers,
-      credentials: 'include'
-    })
-    .then(this._checkResponse);
-  }
+  // getMoviesArray() {
+  //   return fetch(`${this._url}/movies`, {
+  //     headers: this._headers,
+  //     credentials: 'include'
+  //   })
+  //   .then(this._checkResponse);
+  // }
 
   editProfileInfo(data) {
     return fetch(`${this._url}/users/me`, {
@@ -144,7 +144,7 @@ export default class ApiMain {
 const apiMain = new ApiMain({
   baseUrl: 'http://localhost:3000',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 })
 
