@@ -1,6 +1,6 @@
 import React from "react";
 import './AuthForm.css';
-import { emailRegEx } from "../../utils/constants";
+import { emailRegEx, nameRegEx } from "../../utils/constants";
 
 function AuthForm(props) {
   return (
@@ -17,7 +17,8 @@ function AuthForm(props) {
               type="text"
               minLength="2"
               maxLength='16'
-              placeholder="Имя"
+              placeholder="Латиница, кириллица, пробел или дефис"
+              pattern={nameRegEx}
               required
             />
             <span className={`auth__input-error  ${props.error.username && 'auth__input-error_active'}`}>{props.error.username}</span>
@@ -33,7 +34,7 @@ function AuthForm(props) {
             name="email"
             type="email"
             minLength="2"
-            placeholder="E-mail"
+            placeholder="Ваш E-mail"
             pattern={emailRegEx}
             required
           />
@@ -49,25 +50,13 @@ function AuthForm(props) {
             type="password"
             minLength="3"
             maxLength="20"
-            placeholder="Пароль"
+            placeholder="Минимум 3 символа, максимум 20 символов"
             required
           />
           <span className={`auth__input-error  ${props.error.password && 'auth__input-error_active'}`}>{props.error.password}</span>
         </label>
       </fieldset>
       <div className={`auth__basement ${props.login ? 'auth__basement_login' : ''}`}>
-        {/* {location.pathname === '/signup' &&
-          <span
-            className={`auth__error ${props.setError && 'auth__error_active'}`}>
-            {props.errorText === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При регистрации пользователя произошла ошибка.'}
-          </span>
-        }
-        {location.pathname === '/signin' &&
-          <span
-            className={`auth__error ${props.setError && 'auth__error_active'}`}>
-            Вы ввели неправильный логин или пароль.
-          </span>
-        } */}
         <span
           className={`auth__error ${props.requestResultText && 'auth__error_active'}`}>
           {props.requestResultText}

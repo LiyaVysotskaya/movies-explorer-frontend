@@ -3,7 +3,7 @@ import './Profile.css';
 import Header from "../Header/Header";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { emailRegEx } from "../../utils/constants";
+import { emailRegEx, nameRegEx } from "../../utils/constants";
 import { apiMain } from "../../utils/MainApi";
 
 function Profile(props) {
@@ -66,7 +66,8 @@ function Profile(props) {
                   type="text"
                   minLength="2"
                   maxLength='16'
-                  placeholder="Имя"
+                  placeholder="Латиница, кириллица, пробел или дефис"
+                  pattern={nameRegEx}
                   required
                 />
                 <span className={`profile__input-error ${errors.username && 'auth__input-error_active'}`}>{errors.username}</span>
@@ -81,7 +82,7 @@ function Profile(props) {
                   name="email"
                   type="email"
                   minLength="2"
-                  placeholder="E-mail"
+                  placeholder="Ваш E-mail"
                   pattern={emailRegEx}
                   required
                 />
