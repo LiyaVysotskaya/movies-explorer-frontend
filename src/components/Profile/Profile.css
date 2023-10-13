@@ -132,9 +132,9 @@
   line-height: normal;
 }
 
-.profile__error {
+.profile__request-result {
   height: 12px;
-  margin: 0;
+  margin: 0 0 10px 0;
   color: #FF4062;
   font-family: inherit;
   font-size: 10px;
@@ -144,7 +144,7 @@
   visibility: hidden;
 }
 
-.profile__error_active {
+.profile__request-result_active {
   visibility: visible;
 }
 
@@ -174,14 +174,10 @@
       font-size: 12px;
     }
   }
-
-.profile__button_inactive {
-  background-color: #ffffff;
-  color: #000000;
-  opacity: 0.3;
-  border: 1px solid #000000;
-}
-  .profile__button_inactive:hover {
+  .profile__button:disabled {
+    opacity: 0.3;
+  }
+  .profile__button:disabled:hover {
     opacity: 0.3;
     cursor: default;
   }

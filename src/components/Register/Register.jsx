@@ -5,15 +5,11 @@ import './Register.css';
 import AuthForm from "../AuthForm/AuthForm";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { apiMain } from "../../utils/MainApi";
-import { ErrorContext } from "../../contexts/ErrorContext";
 
 function Register(props) {
   const navigate = useNavigate();
-  const errorActive = React.useContext(ErrorContext);
 
-  React.useEffect(() => {
-    props.setError(false)
-  }, [])
+  const [requestResultText, setRequestResultText] = React.useState(null);
 
   const { values, handleChange, errors, isValid } = useFormAndValidation({
     username: '',
@@ -30,15 +26,20 @@ function Register(props) {
           props.onLoggedIn();
           navigate('/movies', { replace: true });
         })
-        .catch((err) => {
-          props.setError(true)
-          console.log(`Ошибка авторизации ${err}`)
+        .catch((error) => {
+          setRequestResultText(error === 'Ошибка: 401' ? 'Вы ввели неправильный логин или пароль.' : 'При авторизации пользователя произошла ошибка.');
+          console.log(`Ошибка авторизации ${error}`)
         })
       })
-      .catch((err) => {
-        props.setError(true)
-        console.log(`Ошибка регистрации ${err}`)
+      .catch((error) => {
+        setRequestResultText(error === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При регистрации пользователя произошла ошибка.');
+        console.log(`Ошибка регистрации ${error}`)
       })
+  }
+
+  function onInputChange(e) {
+    handleChange(e);
+    setRequestResultText(null);
   }
 
   return (
@@ -52,11 +53,11 @@ function Register(props) {
           handleSubmit={handleSubmit}
           username={values.username}
           email={values.email}
-          handleChange={handleChange}
+          handleChange={onInputChange}
           password={values.password}
           error={errors}
           isValid={isValid}
-          setError={props.setError}
+          requestResultText={requestResultText}
           buttonText='Зарегистрироваться' />
         <Link className='register__link' to='/signin'>Уже зарегистрированы?
           <span className="register__link-text">Войти</span>

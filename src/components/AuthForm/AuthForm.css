@@ -138,6 +138,16 @@
   border-radius: 3px;
   transition: opacity .4s;
 }
+  .auth__button:disabled {
+    background-color: #ffffff;
+    color: #000000;
+    opacity: 0.3;
+    border: 1px solid #000000;
+  }
+  .auth__button:disabled:hover {
+    opacity: 0.3;
+    cursor: default;
+  }
   .auth__button:hover {
     opacity: 0.8;
     cursor: pointer;
@@ -148,15 +158,4 @@
       margin: 157px 0 14px;
       font-size: 12px;
     }
-  }
-
-.auth__button_inactive {
-  background-color: #ffffff;
-  color: #000000;
-  opacity: 0.3;
-  border: 1px solid #000000;
-}
-  .auth__button_inactive:hover {
-    opacity: 0.3;
-    cursor: default;
   }

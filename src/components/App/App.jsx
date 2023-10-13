@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { ErrorContext } from '../../contexts/ErrorContext';
 import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -15,9 +14,8 @@ import { apiMain } from '../../utils/MainApi';
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState(null);
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(null);
   const [movies, setMovies] = React.useState([]);
-  const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     tokenCheck();
@@ -50,15 +48,8 @@ function App() {
       });
   }
 
-  function handleUpdateUser(data) {
-    apiMain.editProfileInfo(data)
-      .then((res) => {
-        setCurrentUser(res);
-      })
-      .catch(() => {
-        setIsError(true)
-        (console.error)
-      });
+  function handleUpdateUser(user) {
+    setCurrentUser(user);
   }
 
   function handleLogin() {
@@ -71,46 +62,40 @@ function App() {
     apiMain.logout();
   }
 
-  // function setError() {
-  //   setIsError(true)
-  // }
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <ErrorContext.Provider value={isError}>
-        <div className="page__container">
-          <Routes>
-            <Route path="/" element={
-              <Main loggedIn={loggedIn} />
-            } />
-            <Route path="/movies" element={
-              <ProtectedRoute
-                element={Movies}
-                loggedIn={loggedIn}
-              />
-            }
+      <div className="page__container">
+        {loggedIn !== null && <Routes>
+          <Route path="/" element={
+            <Main loggedIn={loggedIn} />
+          } />
+          <Route path="/movies" element={
+            <ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
             />
-            <Route path="/saved-movies" element={
-              <ProtectedRoute
-                element={SavedMovies}
-                loggedIn={loggedIn}
-              />
-            } />
-            <Route path="/profile" element={
-              <ProtectedRoute
-                element={Profile}
-                loggedIn={loggedIn}
-                onUpdateUser={handleUpdateUser}
-                handleLogout={handleLogout}
-                setError={setIsError}
-              />
-            } />
-            <Route path="/signup" element={<Register onLoggedIn={handleLogin} setError={setIsError} />} />
-            <Route path="/signin" element={<Login onLoggedIn={handleLogin} setError={setIsError} />} />
-            <Route path="/*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-      </ErrorContext.Provider>
+          }
+          />
+          <Route path="/saved-movies" element={
+            <ProtectedRoute
+              element={SavedMovies}
+              loggedIn={loggedIn}
+            />
+          } />
+          <Route path="/profile" element={
+            <ProtectedRoute
+              element={Profile}
+              loggedIn={loggedIn}
+              onUpdateUser={handleUpdateUser}
+              handleLogout={handleLogout}
+            />
+          } />
+          <Route path="/signup" element={<Register onLoggedIn={handleLogin} />} />
+          <Route path="/signin" element={<Login onLoggedIn={handleLogin} />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+        }
+      </div>
     </CurrentUserContext.Provider>
   );
 }

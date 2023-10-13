@@ -1,13 +1,8 @@
 import React from "react";
 import './AuthForm.css';
 import { emailRegEx } from "../../utils/constants";
-import { useLocation } from "react-router-dom";
-import { ErrorContext } from "../../contexts/ErrorContext";
 
 function AuthForm(props) {
-  const location = useLocation();
-  const errorActive = React.useContext(ErrorContext);
-
   return (
     <form className="auth" method="POST" onSubmit={props.handleSubmit} noValidate>
       <fieldset className="auth__fieldset">
@@ -61,20 +56,24 @@ function AuthForm(props) {
         </label>
       </fieldset>
       <div className={`auth__basement ${props.login ? 'auth__basement_login' : ''}`}>
-        {location.pathname === '/signup' &&
+        {/* {location.pathname === '/signup' &&
           <span
-            className={`auth__error ${errorActive && 'auth__error_active'}`}>
+            className={`auth__error ${props.setError && 'auth__error_active'}`}>
             {props.errorText === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При регистрации пользователя произошла ошибка.'}
           </span>
         }
         {location.pathname === '/signin' &&
           <span
-            className={`auth__error ${errorActive && 'auth__error_active'}`}>
+            className={`auth__error ${props.setError && 'auth__error_active'}`}>
             Вы ввели неправильный логин или пароль.
           </span>
-        }
+        } */}
+        <span
+          className={`auth__error ${props.requestResultText && 'auth__error_active'}`}>
+          {props.requestResultText}
+        </span>
         <button
-          className={`auth__button ${props.isValid ? '' : 'auth__button_inactive'}`}
+          className='auth__button'
           type="submit" disabled={!props.isValid}>
           {props.buttonText}
         </button>

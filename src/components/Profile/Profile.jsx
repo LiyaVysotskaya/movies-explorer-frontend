@@ -4,11 +4,13 @@ import Header from "../Header/Header";
 import { useFormAndValidation } from '../../hooks/useFormAndValidation';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { emailRegEx } from "../../utils/constants";
-import { ErrorContext } from "../../contexts/ErrorContext";
+import { apiMain } from "../../utils/MainApi";
 
 function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
-  const errorActive = React.useContext(ErrorContext);
+
+  const [isDataChanged, setIsDataChanged] = React.useState(false);
+  const [requestResultText, setRequestResultText] = React.useState(null);
 
   const { values, handleChange, errors, setValues, isValid } = useFormAndValidation({
     username: '',
@@ -27,10 +29,23 @@ function Profile(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    props.onUpdateUser({
-      name: values.username,
-      email: values.email
-    });
+    apiMain.editProfileInfo(values)
+      .then((res) => {
+        props.onUpdateUser(res);
+        setRequestResultText('Обновление прошло успешно.');
+      })
+      .catch((error) => {
+        setRequestResultText(error === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При обновлении профиля произошла ошибка.');
+        console.error(error)
+      });
+
+    setIsDataChanged(false);
+  }
+
+  function onInputChange(e) {
+    setIsDataChanged(true);
+    handleChange(e);
+    setRequestResultText(null);
   }
 
   return (
@@ -38,7 +53,7 @@ function Profile(props) {
       <Header loggedIn={props.loggedIn} handleLogout={props.handleLogout} pageName={'profile'} />
       <main className="main main_profile">
         <section className="profile">
-          <h1 className="profile__title">{`Привет, ${currentUser.name || 'Виталий'}!`}</h1>
+          <h1 className="profile__title">{`Привет, ${currentUser?.name}!`}</h1>
           <form className="profile__form" method="POST" onSubmit={handleSubmit} noValidate>
             <fieldset className="profile__fieldset">
               <label className="profile__label">
@@ -46,7 +61,7 @@ function Profile(props) {
                 <input
                   className={`profile__input ${errors.username && 'profile__input_invalid'}`}
                   value={values.username}
-                  onChange={handleChange}
+                  onChange={onInputChange}
                   name="username"
                   type="text"
                   minLength="2"
@@ -62,7 +77,7 @@ function Profile(props) {
                 <input
                   className={`profile__input ${errors.email && 'profile__input_invalid'}`}
                   value={values.email}
-                  onChange={handleChange}
+                  onChange={onInputChange}
                   name="email"
                   type="email"
                   minLength="2"
@@ -74,10 +89,15 @@ function Profile(props) {
               </label>
             </fieldset>
             <span
-              className={`profile__error ${errorActive && 'profile__error_active'}`}>
-              {props.errorText === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При обновлении профиля произошла ошибка.'}
+              className={`profile__request-result ${requestResultText && 'profile__request-result_active'}`}>
+              {requestResultText}
             </span>
-            <button className="profile__button" type="submit">Редактировать</button>
+            <button
+              className='profile__button'
+              type="submit"
+              disabled={!isValid || !isDataChanged}>
+              Редактировать
+            </button>
             <button className="profile__button profile__button_logout" type="button" onClick={props.handleLogout}>Выйти из аккаунта</button>
           </form>
         </section>

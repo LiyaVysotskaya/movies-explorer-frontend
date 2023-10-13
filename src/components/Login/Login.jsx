@@ -9,9 +9,7 @@ import { apiMain } from "../../utils/MainApi";
 function Login(props) {
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    props.setError(false)
-  }, [])
+  const [requestResultText, setRequestResultText] = React.useState(null);
 
   const { values, handleChange, errors, resetForm, isValid } = useFormAndValidation({
     email: '',
@@ -32,12 +30,18 @@ function Login(props) {
           });
           navigate('/movies', { replace: true });
         })
-        .catch((err) => {
-          props.setError(true)
-          console.log(`Ошибка авторизации ${err}`)
+        .catch((error) => {
+          setRequestResultText(error === 'Ошибка: 401' ? 'Вы ввели неправильный логин или пароль.' : 'При авторизации пользователя произошла ошибка.');
+          console.log(`Ошибка авторизации ${error}`)
         })
     }
   }
+
+  function onInputChange(e) {
+    handleChange(e);
+    setRequestResultText(null);
+  }
+
   return (
     <main className="main main_login">
 
@@ -48,10 +52,11 @@ function Login(props) {
           login={true}
           handleSubmit={handleSubmit}
           email={values.email}
-          handleChange={handleChange}
+          handleChange={onInputChange}
           password={values.password}
           error={errors}
           isValid={isValid}
+          requestResultText={requestResultText}
           buttonText='Войти' />
         <Link className='login__link' to='/signup'>Ещё не зарегистрированы?
           <span className="login__link-text">Регистрация</span>
