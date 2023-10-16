@@ -10,15 +10,15 @@ function SearchForm(props) {
         <form className="search__form" name="searchForm" onSubmit={props.onSubmit}>
           <input
             className="search__input"
-            // value={props.values.search}
-            // onChange={props.handleChange}
+            value={props.values.search}
+            onChange={props.onChange}
             name="search"
             type="text"
             placeholder="Фильм"
             required
           />
           <button className="search__button" type="submit">Найти</button>
-          <FilterCheckbox text='Короткометражки' />
+          <FilterCheckbox isChecked={props.values.isShort} onChange={props.onChange} />
         </form>
       </div>
     </div>

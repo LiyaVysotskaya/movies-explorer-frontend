@@ -1,6 +1,5 @@
 import React from "react";
 import "./MoviesCard.css";
-import { apiMain } from "../../utils/MainApi";
 
 function MoviesCard(props) {
 
@@ -8,19 +7,19 @@ function MoviesCard(props) {
     props.saved = false;
   }
 
-  const onLikeClick = () => {
-    props.saved = true;
-  }
+  // const onLikeClick = () => {
+  //   props.saved = true;
+  // }
 
-  function handleMovieLike() {
-    const isLiked = movies.some(element => props.movie.id === element.movieId);
+  // function handleMovieLike() {
+  //   const isLiked = movies.some(element => props.movie.id === element.movieId);
 
-    apiMain.changeLikeStatus(movie.id, !isLiked)
-    .then((newMovie) => {
-      setMovies((state) => state.map((c) => c._id === movie.id  ? newMovie : c));
-    })
-    .catch(console.error);
-  }
+  //   apiMain.changeLikeStatus(movie.id, !isLiked)
+  //   .then((newMovie) => {
+  //     setMovies((state) => state.map((c) => c._id === movie.id  ? newMovie : c));
+  //   })
+  //   .catch(console.error);
+  // }
 
   const getButtonClass = () => {
     if (props.saved) {
@@ -42,7 +41,7 @@ function MoviesCard(props) {
             className={`movies__button movies__button_${getButtonClass()}`}
             type="button"
             title={`${props.saved ? 'Удалить' : 'Сохранить'}`}
-            onClick={props.saved ? onDeleteClick : handleMovieLike}
+            onClick={props.saved ? onDeleteClick : props.onLikeClick}
           >
             {!props.saved && 'Сохранить'}
           </button>
