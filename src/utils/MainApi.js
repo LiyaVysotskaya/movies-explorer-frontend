@@ -12,14 +12,6 @@ export default class ApiMain {
       .then(this._checkResponse);
   }
 
-  // getMoviesArray() {
-  //   return fetch(`${this._url}/movies`, {
-  //     headers: this._headers,
-  //     credentials: 'include'
-  //   })
-  //   .then(this._checkResponse);
-  // }
-
   editProfileInfo(data) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',

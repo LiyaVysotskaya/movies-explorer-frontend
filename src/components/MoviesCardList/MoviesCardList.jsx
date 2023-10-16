@@ -5,13 +5,14 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 function MoviesCardList(props) {
   return (
     <div className="movies">
+      {props.moviesList.length === 0 &&
+        <span className="movies__text">Ничего не найдено.</span>
+      }
       <ul className="movies__list">
         {props.moviesList.map(movie =>
           <MoviesCard
             key={movie.id}
-            name={movie.name}
-            duration={movie.duration}
-            src={movie.image}
+            movie={movie}
             saved={movie.saved}
             showSavedIcon={props.showSavedIcon} />
         )}

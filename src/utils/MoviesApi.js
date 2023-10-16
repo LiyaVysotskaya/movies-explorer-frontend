@@ -7,7 +7,6 @@ export default class ApiMovies {
   getMoviesArray() {
     return fetch(`${this._url}`, {
       headers: this._headers,
-      credentials: 'include',
     })
       .then(this._checkResponse);
   }

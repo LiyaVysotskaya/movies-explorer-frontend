@@ -29,11 +29,12 @@ function App() {
       })
       .catch(console.error);
 
-    apiMovies.getMoviesArray()
-      .then(data => {
-        setMovies(data);
-      })
-      .catch(console.error);
+    // apiMovies.getMoviesArray()
+    //   .then(data => {
+    //     console.log(data)
+    //     setMovies(data);
+    //   })
+    //   .catch(console.error);
   }
 
   function tokenCheck() {
