@@ -1,9 +1,34 @@
 import React from "react";
 import './MoviesCardList.css';
 import MoviesCard from "../MoviesCard/MoviesCard";
-// import { apiMain } from "../../utils/MainApi";
 
 function MoviesCardList(props) {
+  const [endOfList, setEndOfList] = React.useState(false);
+  const [filteredMoviesList, setFilteredMoviesList] = React.useState([]);
+
+  React.useEffect(() => {
+    setFilteredMoviesList([]);
+    sliceMoviesList(0, props.requestParams.default);
+  }, [props.moviesList]);
+
+  const sliceMoviesList = (skip, count) => {
+    if (props.moviesList.length) {
+      let end = skip + count;
+      if (props.moviesList.length < end) {
+        end = props.moviesList.length;
+        setEndOfList(true);
+      } else {
+        setEndOfList(false);
+      }
+      setFilteredMoviesList(x => x.concat(props.moviesList.slice(skip, end)));
+    } else {
+      setFilteredMoviesList([]);
+    }
+  }
+
+  const onShowMoreClick = () => {
+    sliceMoviesList(filteredMoviesList.length, props.requestParams.more);
+  }
 
   // function handleMovieLike() {
   //   const isLiked = movies.some(element => props.movie.id === element.movieId);
@@ -17,22 +42,25 @@ function MoviesCardList(props) {
 
   return (
     <div className="movies">
-      {props.moviesList.length === 0 &&
+      {(filteredMoviesList.length === 0 && !props.requestError) &&
         <span className="movies__text">Ничего не найдено.</span>
       }
+      {props.requestError &&
+        <span className="movies__text">{props.requestError}</span>
+      }
       <ul className="movies__list">
-        {props.moviesList.map(movie =>
+        {filteredMoviesList.map(movie =>
           <MoviesCard
             key={movie.id}
             movie={movie}
             saved={movie.saved}
             showSavedIcon={props.showSavedIcon}
-            // onLikeClick={handleMovieLike}
+          // onLikeClick={handleMovieLike}
           />
         )}
       </ul>
-      {!props.endOfList &&
-        <button className="movies__button-more" type="button" onClick={props.onShowMoreClick}>Ещё</button>}
+      {(!endOfList && filteredMoviesList.length !== 0) &&
+        <button className="movies__button-more" type="button" onClick={onShowMoreClick}>Ещё</button>}
     </div>
   )
 }

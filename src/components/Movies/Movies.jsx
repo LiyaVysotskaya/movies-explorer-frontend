@@ -10,12 +10,11 @@ import { apiMovies } from "../../utils/MoviesApi";
 function Movies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
   const [filteredMoviesList, setFilteredMoviesList] = React.useState([]);
-  const [endOfList, setEndOfList] = React.useState(false);
-  const [searchValues, setSearchValues] = React.useState({ search: '' });
-  const [requestResultText, setRequestResultText] = React.useState(null);
+  const [initialSearchValues, setInitialSearchValues] = React.useState({ search: '', isShort: false });
+  const [requestError, setRequestError] = React.useState(null);
 
   const { desktop, tablet, mobile } = devises;
-  const searchValuesKey = 'SEARCH_VALUES_KEY';
+  const searchValuesKey = 'MOVIES_SEARCH_VALUES_KEY';
   const moviesListKey = 'MOVIES_LIST_KEY';
 
   React.useEffect(() => {
@@ -23,9 +22,9 @@ function Movies(props) {
     const moviesList = JSON.parse(localStorage.getItem(moviesListKey));
 
     if (searchValues && moviesList) {
-      setSearchValues(searchValues);
+      setInitialSearchValues(searchValues);
       setMoviesList(moviesList);
-      showFilteredMovies(0, getRequestParams().default, moviesList, searchValues);
+      filterMovies(moviesList, searchValues);
     }
   }, []);
 
@@ -39,7 +38,7 @@ function Movies(props) {
     }
   }
 
-  const showFilteredMovies = async (skip, count, moviesList, searchValues) => {
+  const filterMovies = async (moviesList, searchValues) => {
     if (!moviesList.length) {
       moviesList = await getMovies();
       setMoviesList(moviesList);
@@ -47,42 +46,22 @@ function Movies(props) {
     }
 
     moviesList = moviesList.filter((movie) => searchFilter(movie, searchValues));
-
-    if (moviesList.length) {
-      let end = skip + count;
-      if (moviesList.length < end) {
-        end = moviesList.length;
-        setEndOfList(true);
-      }
-      setFilteredMoviesList(x => x.concat(moviesList.slice(skip, end)));
-    } else {
-      setRequestResultText('Ничего не найдено.');
-    }
+    setFilteredMoviesList(moviesList);
   }
 
   async function getMovies() {
     try {
+      setRequestError(null);
       return await apiMovies.getMoviesArray();
     } catch (error) {
-      setRequestResultText('Ничего не найдено.');
+      setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
       return [];
     }
   }
 
-  const onShowMoreClick = async () => {
-    await showFilteredMovies(filteredMoviesList.length, getRequestParams().more, moviesList, searchValues);
-  }
-
-  const onFilterChange = (e) => {
-    const { name, value, checked } = e.target;
-    setSearchValues({ ...searchValues, [name]: e.target.hasOwnProperty('checked') ? checked : value });
-  }
-
-  const onFilterSubmit = async (e) => {
-    e.preventDefault();
+  const onFilterSubmit = async (searchValues) => {
     localStorage.setItem(searchValuesKey, JSON.stringify(searchValues));
-    setFilteredMoviesList([]);
-    await showFilteredMovies(0, getRequestParams().default, moviesList, searchValues);
+    await filterMovies(moviesList, searchValues);
   }
 
   const searchFilter = (movie, searchValues) => {
@@ -97,8 +76,13 @@ function Movies(props) {
     <>
       <Header loggedIn={props.loggedIn} pageName={'movies'} />
       <main className="main main_movies">
-        <SearchForm values={searchValues} onSubmit={onFilterSubmit} onChange={onFilterChange} />
-        <MoviesCardList moviesList={filteredMoviesList} onShowMoreClick={onShowMoreClick} endOfList={endOfList} showSavedIcon={true} />
+        <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} />
+        <MoviesCardList
+          moviesList={filteredMoviesList}
+          requestParams={getRequestParams()}
+          showSavedIcon={true}
+          requestError={requestError}
+        />
       </main>
       <Footer />
     </>

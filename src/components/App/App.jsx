@@ -16,7 +16,6 @@ import { apiMovies } from '../../utils/MoviesApi';
 function App() {
   const [currentUser, setCurrentUser] = React.useState(null);
   const [loggedIn, setLoggedIn] = React.useState(null);
-  const [movies, setMovies] = React.useState([]);
 
   React.useEffect(() => {
     tokenCheck();
@@ -28,13 +27,6 @@ function App() {
         setCurrentUser(data);
       })
       .catch(console.error);
-
-    // apiMovies.getMoviesArray()
-    //   .then(data => {
-    //     console.log(data)
-    //     setMovies(data);
-    //   })
-    //   .catch(console.error);
   }
 
   function tokenCheck() {
@@ -60,6 +52,7 @@ function App() {
   }
 
   function handleLogout() {
+    localStorage.clear();
     setLoggedIn(false);
     apiMain.logout();
   }
