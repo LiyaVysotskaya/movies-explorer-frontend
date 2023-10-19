@@ -24,3 +24,4 @@ export const devises = {
 
 export const emailRegEx = "^\\S+@\\S+\\.\\S+$";
 export const nameRegEx = "^[A-Za-zА-Яа-яЁё \\-]+$";
+export const bitApiBaseUrl= 'https://api.nomoreparties.co';

@@ -1,3 +1,5 @@
+import { bitApiBaseUrl } from "./constants";
+
 export default class ApiMovies {
   constructor(settings) {
     this._url = settings.baseUrl;
@@ -21,7 +23,7 @@ export default class ApiMovies {
 }
 
 const apiMovies = new ApiMovies({
-  baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
+  baseUrl: `${bitApiBaseUrl}/beatfilm-movies`,
   headers: {
     'Content-Type': 'application/json',
   }

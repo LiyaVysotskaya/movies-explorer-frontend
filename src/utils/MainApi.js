@@ -1,3 +1,5 @@
+import { bitApiBaseUrl } from "./constants";
+
 export default class ApiMain {
   constructor(settings) {
     this._url = settings.baseUrl;
@@ -6,6 +8,14 @@ export default class ApiMain {
 
   getUserData() {
     return fetch(`${this._url}/users/me`, {
+      headers: this._headers,
+      credentials: 'include'
+    })
+      .then(this._checkResponse);
+  }
+
+  getSavedMovies() {
+    return fetch(`${this._url}/movies`, {
       headers: this._headers,
       credentials: 'include'
     })
@@ -25,23 +35,15 @@ export default class ApiMain {
     .then(this._checkResponse);
   }
 
-  addNewMovie(data) {
+  saveMovie(data) {
     return fetch(`${this._url}/movies`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        country: data.country,
-        director: data.director,
-        duration: data.duration,
-        year: data.year,
-        description: data.description,
-        image: data.image,
-        trailerLink: data.trailerLink,
-        thumbnail: data.thumbnail,
-        owner: data.owner,
-        movieId: data.movieId,
-        nameRU: data.nameRU,
-        nameEN: data.nameEN
+        ...data,
+        image: `${bitApiBaseUrl}${data.image.url}`,
+        thumbnail: `${bitApiBaseUrl}${data.image.formats.thumbnail.url}`,
+        movieId: data.id,
       }),
       credentials: 'include'
     })
@@ -51,20 +53,6 @@ export default class ApiMain {
   deleteMovie(id) {
     return fetch(`${this._url}/movies/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
-      credentials: 'include'
-    })
-    .then(this._checkResponse);
-  }
-
-  changeLikeStatus(id, likeStatus) {
-    let method = 'DELETE';
-    if (likeStatus) {
-      method = 'PUT';
-    }
-
-    return fetch(`${this._url}/movies/${id}/likes`, {
-      method: method,
       headers: this._headers,
       credentials: 'include'
     })

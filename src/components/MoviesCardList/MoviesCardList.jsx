@@ -24,21 +24,11 @@ function MoviesCardList(props) {
     } else {
       setFilteredMoviesList([]);
     }
-  }
+  };
 
   const onShowMoreClick = () => {
     sliceMoviesList(filteredMoviesList.length, props.requestParams.more);
-  }
-
-  // function handleMovieLike() {
-  //   const isLiked = movies.some(element => props.movie.id === element.movieId);
-
-  //   apiMain.changeLikeStatus(movie.id, !isLiked)
-  //   .then((newMovie) => {
-  //     setMovies((state) => state.map((c) => c._id === movie.id  ? newMovie : c));
-  //   })
-  //   .catch(console.error);
-  // }
+  };
 
   return (
     <div className="movies">
@@ -53,9 +43,9 @@ function MoviesCardList(props) {
           <MoviesCard
             key={movie.id}
             movie={movie}
-            saved={movie.saved}
             showSavedIcon={props.showSavedIcon}
-          // onLikeClick={handleMovieLike}
+            onSaveMovie={props.onSaveMovie}
+            onDeleteMovie={props.onDeleteMovie}
           />
         )}
       </ul>
@@ -63,6 +53,6 @@ function MoviesCardList(props) {
         <button className="movies__button-more" type="button" onClick={onShowMoreClick}>Ещё</button>}
     </div>
   )
-}
+};
 
 export default MoviesCardList;

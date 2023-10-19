@@ -6,6 +6,7 @@ import { devises } from "../../utils/constants";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { apiMovies } from "../../utils/MoviesApi";
+import { apiMain } from "../../utils/MainApi";
 
 function Movies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
@@ -41,6 +42,14 @@ function Movies(props) {
   const filterMovies = async (moviesList, searchValues) => {
     if (!moviesList.length) {
       moviesList = await getMovies();
+      const savedMoviesList = await getSavedMovies();
+      moviesList.forEach(x => {
+        const savedItem = savedMoviesList.find(y => x.id === y.movieId);
+        if(savedItem){
+          x.isSaved = true;
+          x.savedId = savedItem._id;
+        }
+      });
       setMoviesList(moviesList);
       localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
     }
@@ -57,6 +66,28 @@ function Movies(props) {
       setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
       return [];
     }
+  }
+
+  async function getSavedMovies() {
+    try {
+      setRequestError(null);
+      return await apiMain.getSavedMovies();
+    } catch (error) {
+      setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
+      return [];
+    }
+  }
+
+  const onSaveMovie = (id, savedId) => {
+    setMoviesList(moviesList.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId})));
+    setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId})));
+    localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+  }
+
+  const onDeleteMovie = id => {
+    setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
+    setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
+    localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
   }
 
   const onFilterSubmit = async (searchValues) => {
@@ -82,6 +113,8 @@ function Movies(props) {
           requestParams={getRequestParams()}
           showSavedIcon={true}
           requestError={requestError}
+          onSaveMovie={onSaveMovie}
+          onDeleteMovie={onDeleteMovie}
         />
       </main>
       <Footer />
