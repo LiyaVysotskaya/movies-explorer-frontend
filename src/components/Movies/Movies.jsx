@@ -79,16 +79,35 @@ function Movies(props) {
   }
 
   const onSaveMovie = (id, savedId) => {
-    setMoviesList(moviesList.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId})));
-    setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId})));
-    localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+    setMoviesList(arr => {
+      arr = moviesList.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId}));
+      localStorage.setItem(moviesListKey, JSON.stringify(arr));
+      return arr;
+    });
+    setFilteredMoviesList(arr => arr.map(x => ({...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId})));
   }
 
   const onDeleteMovie = id => {
-    setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
-    setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
-    localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+    setMoviesList(arr => {
+      arr = moviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId}));
+      localStorage.setItem(moviesListKey, JSON.stringify(arr));
+      return arr;
+    });
+    setFilteredMoviesList(arr => arr.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId})));
   }
+
+  // const onDeleteMovie = id => {
+  //   setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
+  //   setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
+  //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+  // }
+
+
+  // const onDeleteMovie = id => {
+  //   setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
+  //   setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
+  //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+  // }
 
   const onFilterSubmit = async (searchValues) => {
     localStorage.setItem(searchValuesKey, JSON.stringify(searchValues));

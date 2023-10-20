@@ -5,8 +5,9 @@ import { bitApiBaseUrl } from "../../utils/constants";
 
 function MoviesCard(props) {
   const onButtonClick = () => {
+    console.log(props.movie)
     if (props.movie.isSaved) {
-      onDeleteMovie(props.movie.savedId);
+      onDeleteMovie(props.movie);
     } else {
       onSaveMovie(props.movie);
     }
@@ -14,16 +15,16 @@ function MoviesCard(props) {
 
   const onSaveMovie = movie => {
     apiMain.saveMovie(movie)
-      .then(() => {
-        props.onSaveMovie(movie.id);
+      .then(res => {
+        props.onSaveMovie(movie.id, res._id);
       })
       .catch(console.error);
   };
 
-  const onDeleteMovie = savedId => {
-    apiMain.deleteMovie(savedId)
+  const onDeleteMovie = movie => {
+    apiMain.deleteMovie(movie.savedId)
       .then(() => {
-        props.onDeleteMovie(savedId);
+        props.onDeleteMovie(movie.id);
       })
       .catch(console.error);
   };
