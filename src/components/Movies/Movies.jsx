@@ -45,7 +45,7 @@ function Movies(props) {
       const savedMoviesList = await getSavedMovies();
       moviesList.forEach(x => {
         const savedItem = savedMoviesList.find(y => x.id === y.movieId);
-        if(savedItem){
+        if (savedItem) {
           x.isSaved = true;
           x.savedId = savedItem._id;
         }
