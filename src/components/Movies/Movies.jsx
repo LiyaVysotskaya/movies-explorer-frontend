@@ -96,19 +96,6 @@ function Movies(props) {
     setFilteredMoviesList(arr => arr.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId})));
   }
 
-  // const onDeleteMovie = id => {
-  //   setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
-  //   setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
-  //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
-  // }
-
-
-  // const onDeleteMovie = id => {
-  //   setMoviesList(moviesList.map(x => ({...x, isSaved: x.id === id ? false : x.isSaved })));
-  //   setFilteredMoviesList(filteredMoviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved })));
-  //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
-  // }
-
   const onFilterSubmit = async (searchValues) => {
     localStorage.setItem(searchValuesKey, JSON.stringify(searchValues));
     await filterMovies(moviesList, searchValues);
