@@ -6,6 +6,8 @@ import { devises } from "../../utils/constants";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { apiMain } from "../../utils/MainApi";
+// import { apiMovies } from "../../utils/MoviesApi";
+
 
 function SavedMovies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
@@ -20,16 +22,23 @@ function SavedMovies(props) {
   React.useEffect(() => {
     const searchValues = JSON.parse(localStorage.getItem(searchValuesKey));
     const savedMoviesList = JSON.parse(localStorage.getItem(moviesListKey));
-
-    console.log(moviesList)
-
     if (searchValues && savedMoviesList) {
-      setInitialSearchValues(searchValues);
-      setMoviesList(savedMoviesList);
-      filterMovies(savedMoviesList, searchValues);
-    } else {
-      getSavedMovies()
-    }
+      filterMovies(savedMoviesList.reverse(), searchValues)
+  } else {
+    filterMovies(moviesList, searchValues)
+  }
+    // const searchValues = JSON.parse(localStorage.getItem(searchValuesKey));
+    // const savedMoviesList = JSON.parse(localStorage.getItem(moviesListKey));
+
+    // console.log(moviesList)
+
+    // if (searchValues && savedMoviesList) {
+    //   setInitialSearchValues(searchValues);
+    //   setMoviesList(savedMoviesList);
+    //   filterMovies(savedMoviesList, searchValues);
+    // } else {
+    //   getSavedMovies()
+    // }
   }, []);
 
   const getRequestParams = () => {
@@ -44,11 +53,10 @@ function SavedMovies(props) {
 
   const filterMovies = async (moviesList, searchValues) => {
     const savedMoviesList = await getSavedMovies();
-    setMoviesList(savedMoviesList);
+    setMoviesList(savedMoviesList)
+    console.log(savedMoviesList)
     localStorage.setItem(moviesListKey, JSON.stringify(savedMoviesList));
 
-    moviesList = savedMoviesList.filter((movie) => searchFilter(movie, searchValues));
-    setFilteredMoviesList(moviesList);
     // if (!moviesList.length) {
     //   moviesList = await getMovies();
     //   const savedMoviesList = await getSavedMovies();
@@ -63,8 +71,8 @@ function SavedMovies(props) {
     //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
     // }
 
-    // moviesList = moviesList.filter((movie) => searchFilter(movie, searchValues));
-    // setFilteredMoviesList(moviesList);
+    moviesList = moviesList.filter((movie) => searchFilter(movie, searchValues));
+    setFilteredMoviesList(moviesList);
   }
 
   async function getSavedMovies() {
@@ -77,13 +85,23 @@ function SavedMovies(props) {
     }
   }
 
+  // async function getMovies() {
+  //   try {
+  //     setRequestError(null);
+  //     return await apiMovies.getMoviesArray();
+  //   } catch (error) {
+  //     setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
+  //     return [];
+  //   }
+  // }
+
   const onDeleteMovie = id => {
     setMoviesList(arr => {
-      arr = moviesList.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId}));
+      arr = moviesList.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId }));
       localStorage.setItem(moviesListKey, JSON.stringify(arr));
       return arr;
     });
-    setFilteredMoviesList(arr => arr.map(x => ({...x, isSaved:  x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId})));
+    setFilteredMoviesList(arr => arr.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId })));
   }
 
   const onFilterSubmit = async (searchValues) => {
@@ -103,9 +121,9 @@ function SavedMovies(props) {
     <>
       <Header loggedIn={props.loggedIn} pageName={'saved-movies'} />
       <main className="main main_saved-movies">
-      <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} />
+        <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} />
         <MoviesCardList
-          moviesList={filteredMoviesList}
+          moviesList={moviesList}
           requestParams={getRequestParams()}
           showSavedIcon={false}
           requestError={requestError}
