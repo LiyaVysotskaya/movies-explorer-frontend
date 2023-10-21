@@ -6,8 +6,6 @@ import { devises } from "../../utils/constants";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { apiMain } from "../../utils/MainApi";
-// import { apiMovies } from "../../utils/MoviesApi";
-
 
 function SavedMovies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
@@ -20,25 +18,13 @@ function SavedMovies(props) {
   const moviesListKey = 'SAVED_MOVIES_LIST_KEY';
 
   React.useEffect(() => {
-    const searchValues = JSON.parse(localStorage.getItem(searchValuesKey));
-    const savedMoviesList = JSON.parse(localStorage.getItem(moviesListKey));
-    if (searchValues && savedMoviesList) {
-      filterMovies(savedMoviesList.reverse(), searchValues)
-  } else {
-    filterMovies(moviesList, searchValues)
-  }
-    // const searchValues = JSON.parse(localStorage.getItem(searchValuesKey));
-    // const savedMoviesList = JSON.parse(localStorage.getItem(moviesListKey));
-
-    // console.log(moviesList)
-
-    // if (searchValues && savedMoviesList) {
-    //   setInitialSearchValues(searchValues);
-    //   setMoviesList(savedMoviesList);
-    //   filterMovies(savedMoviesList, searchValues);
-    // } else {
-    //   getSavedMovies()
-    // }
+    setMoviesList(async () => {
+      const savedMoviesList = await getSavedMovies();
+      localStorage.setItem(moviesListKey, JSON.stringify(savedMoviesList));
+      return setMoviesList(savedMoviesList.reverse());
+    });
+    console.log(moviesList)
+      filterMovies(moviesList, initialSearchValues);
   }, []);
 
   const getRequestParams = () => {
@@ -53,23 +39,8 @@ function SavedMovies(props) {
 
   const filterMovies = async (moviesList, searchValues) => {
     const savedMoviesList = await getSavedMovies();
-    setMoviesList(savedMoviesList)
-    console.log(savedMoviesList)
+    setMoviesList(savedMoviesList.reverse());
     localStorage.setItem(moviesListKey, JSON.stringify(savedMoviesList));
-
-    // if (!moviesList.length) {
-    //   moviesList = await getMovies();
-    //   const savedMoviesList = await getSavedMovies();
-    //   moviesList.forEach(x => {
-    //     const savedItem = savedMoviesList.find(y => x.id === y.movieId);
-    //     if (savedItem) {
-    //       x.isSaved = true;
-    //       x.savedId = savedItem._id;
-    //     }
-    //   });
-    //   setMoviesList(moviesList);
-    //   localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
-    // }
 
     moviesList = moviesList.filter((movie) => searchFilter(movie, searchValues));
     setFilteredMoviesList(moviesList);
@@ -84,16 +55,6 @@ function SavedMovies(props) {
       return [];
     }
   }
-
-  // async function getMovies() {
-  //   try {
-  //     setRequestError(null);
-  //     return await apiMovies.getMoviesArray();
-  //   } catch (error) {
-  //     setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
-  //     return [];
-  //   }
-  // }
 
   const onDeleteMovie = id => {
     setMoviesList(arr => {
@@ -123,7 +84,7 @@ function SavedMovies(props) {
       <main className="main main_saved-movies">
         <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} />
         <MoviesCardList
-          moviesList={moviesList}
+          moviesList={filteredMoviesList}
           requestParams={getRequestParams()}
           showSavedIcon={false}
           requestError={requestError}
