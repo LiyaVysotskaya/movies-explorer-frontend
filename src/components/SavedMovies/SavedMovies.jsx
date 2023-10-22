@@ -10,22 +10,51 @@ import { apiMain } from "../../utils/MainApi";
 function SavedMovies(props) {
   const [moviesList, setMoviesList] = React.useState([]);
   const [filteredMoviesList, setFilteredMoviesList] = React.useState([]);
+  const [savedMoviesList, setSavedMoviesList] = React.useState([]);
   const [initialSearchValues, setInitialSearchValues] = React.useState({ search: '', isShort: false });
   const [requestError, setRequestError] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const { desktop, tablet, mobile } = devises;
   const searchValuesKey = 'SAVED_MOVIES_SEARCH_VALUES_KEY';
   const moviesListKey = 'SAVED_MOVIES_LIST_KEY';
 
   React.useEffect(() => {
-    setMoviesList(async () => {
-      const savedMoviesList = await getSavedMovies();
-      localStorage.setItem(moviesListKey, JSON.stringify(savedMoviesList));
-      return setMoviesList(savedMoviesList.reverse());
-    });
-    console.log(moviesList)
-      filterMovies(moviesList, initialSearchValues);
-  }, []);
+    if (props.loggedIn) {
+      apiMain.getSavedMovies()
+        .then((res) => {
+          // console.log(res)
+          setSavedMoviesList(res.reverse());
+          setFilteredMoviesList(savedMoviesList);
+        })
+        .catch(console.error);
+    }
+  }, [])
+
+  // React.useEffect(() => {
+  //   apiMain.getSavedMovies()
+  //     .then(res => {
+  //       setMoviesList(res.reverse())
+  //     })
+  //     .catch(console.error);
+
+  //   filterMovies(moviesList, initialSearchValues);
+  // }, [])
+
+  // React.useEffect(() => {
+  //   setMoviesList(async () => {
+  //     const savedMoviesList = await getSavedMovies();
+  //     localStorage.setItem(moviesListKey, JSON.stringify(savedMoviesList));
+  //     return setMoviesList(savedMoviesList.reverse());
+  //   });
+  //   console.log(moviesList)
+  //   filterMovies(moviesList, initialSearchValues);
+  // }, []);
+
+    // React.useEffect(() => {
+    //   const savedMoviesList = getSavedMovies();
+    //   setMoviesList(savedMoviesList)
+    // }, [])
 
   const getRequestParams = () => {
     if (window.innerWidth > desktop.width) {
@@ -48,11 +77,14 @@ function SavedMovies(props) {
 
   async function getSavedMovies() {
     try {
+      setIsLoading(true)
       setRequestError(null);
-      return await apiMain.getSavedMovies();
+      return await apiMain.getSavedMovies()
     } catch (error) {
       setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
       return [];
+    } finally {
+      setIsLoading(false)
     }
   }
 

@@ -5,7 +5,6 @@ import { bitApiBaseUrl } from "../../utils/constants";
 
 function MoviesCard(props) {
   const onButtonClick = () => {
-    console.log(props.movie)
     if (props.movie.isSaved) {
       onDeleteMovie(props.movie);
     } else {

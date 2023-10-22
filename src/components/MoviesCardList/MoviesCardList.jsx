@@ -1,6 +1,7 @@
 import React from "react";
 import './MoviesCardList.css';
 import MoviesCard from "../MoviesCard/MoviesCard";
+import Preloader from '../Preloader/Preloader';
 
 function MoviesCardList(props) {
   const [endOfList, setEndOfList] = React.useState(false);
@@ -32,7 +33,8 @@ function MoviesCardList(props) {
 
   return (
     <div className="movies">
-      {(filteredMoviesList.length === 0 && !props.requestError) &&
+      <Preloader isLoading={props.isLoading} />
+      {(filteredMoviesList.length === 0 && !props.requestError && !props.isLoading) &&
         <span className="movies__text">Ничего не найдено.</span>
       }
       {props.requestError &&
