@@ -6,7 +6,9 @@ function SearchForm(props) {
   const [searchValues, setSearchValues] = React.useState({ search: '', isShort: false });
 
   React.useEffect(() => {
-    setSearchValues(props.initialValues);
+    if(props.initialValues){
+      setSearchValues(props.initialValues);
+    }
   }, [props.initialValues])
 
   const onFilterChange = (e) => {

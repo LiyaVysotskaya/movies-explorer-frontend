@@ -10,7 +10,7 @@ import { apiMain } from "../../utils/MainApi";
 import { bitApiBaseUrl } from "../../utils/constants";
 
 function Movies(props) {
-  const [moviesList, setMoviesList] = React.useState([]);
+  const [cachedMoviesList, setCachedMoviesList] = React.useState([]);
   const [filteredMoviesList, setFilteredMoviesList] = React.useState([]);
   const [initialSearchValues, setInitialSearchValues] = React.useState({ search: '', isShort: false });
   const [requestError, setRequestError] = React.useState(null);
@@ -24,10 +24,20 @@ function Movies(props) {
     const searchValues = JSON.parse(localStorage.getItem(searchValuesKey));
     const moviesList = JSON.parse(localStorage.getItem(moviesListKey));
 
-    if (searchValues && moviesList) {
+    const setMoviesAsync = async () =>{
+      const savedMoviesList = await apiMain.getSavedMovies();
+      moviesList.forEach(x => {
+        const savedItem = savedMoviesList.find(y => x.id === y.movieId);
+        x.isSaved = !!savedItem;
+        x.savedId = savedItem?._id;
+      });
       setInitialSearchValues(searchValues);
-      setMoviesList(moviesList);
+      setCachedMoviesList(moviesList);
       filterMovies(moviesList, searchValues);
+    }
+
+    if (searchValues && moviesList) {
+      setMoviesAsync();
     }
   }, []);
 
@@ -44,20 +54,7 @@ function Movies(props) {
   const filterMovies = async (moviesList, searchValues) => {
     if (!moviesList.length) {
       moviesList = await getMovies();
-      const savedMoviesList = await getSavedMovies();
-      moviesList.forEach(x => {
-        const savedItem = savedMoviesList.find(y => x.id === y.movieId);
-        if (savedItem) {
-          x.isSaved = true;
-          x.savedId = savedItem._id;
-          // x.image = savedItem.image.url;
-          // x.thumbnail = savedItem.image.formats.thumbnail.url;
-          // x.movieId = savedItem.id;
-        }
-      });
-      setMoviesList(moviesList);
-      // console.log(moviesList)
-      // console.log(savedMoviesList)
+      setCachedMoviesList(moviesList);
       localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
     }
 
@@ -65,11 +62,22 @@ function Movies(props) {
     setFilteredMoviesList(moviesList);
   }
 
-  async function getMovies() {
+  const getMovies = async () => {
     try {
       setIsLoading(true)
       setRequestError(null);
-      return await apiMovies.getMoviesArray();
+      const moviesList = await apiMovies.getMoviesArray();
+      const savedMoviesList = await apiMain.getSavedMovies();
+      moviesList.forEach(x => {
+        const savedItem = savedMoviesList.find(y => x.id === y.movieId);
+        if (savedItem) {
+          x.isSaved = true;
+          x.savedId = savedItem._id;
+        }
+        x.thumbnail = `${bitApiBaseUrl}${x.image.formats.thumbnail.url}`;
+        x.image = `${bitApiBaseUrl}${x.image.url}`;
+      });
+      return moviesList;
     } catch (error) {
       setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
       return [];
@@ -78,37 +86,27 @@ function Movies(props) {
     }
   }
 
-  async function getSavedMovies() {
-    try {
-      setRequestError(null);
-      return await apiMain.getSavedMovies();
-    } catch (error) {
-      setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
-      return [];
-    }
-  }
-
   const onSaveMovie = (id, savedId) => {
-    setMoviesList(arr => {
-      arr = moviesList.map(x => ({ ...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId }));
-      localStorage.setItem(moviesListKey, JSON.stringify(arr));
-      return arr;
+    setCachedMoviesList(moviesList => {
+      moviesList = moviesList.map(x => ({ ...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId }));
+      localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+      return moviesList;
     });
-    setFilteredMoviesList(arr => arr.map(x => ({ ...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId })));
+    setFilteredMoviesList(moviesList => moviesList.map(x => ({ ...x, isSaved: x.isSaved || x.id === id, savedId: x.id === id ? savedId : x.savedId })));
   }
 
   const onDeleteMovie = id => {
-    setMoviesList(arr => {
-      arr = moviesList.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId }));
-      localStorage.setItem(moviesListKey, JSON.stringify(arr));
-      return arr;
+    setCachedMoviesList(moviesList => {
+      moviesList = moviesList.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId }));
+      localStorage.setItem(moviesListKey, JSON.stringify(moviesList));
+      return moviesList;
     });
-    setFilteredMoviesList(arr => arr.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId })));
+    setFilteredMoviesList(moviesList => moviesList.map(x => ({ ...x, isSaved: x.id === id ? false : x.isSaved, savedId: x.id === id ? undefined : x.savedId })));
   }
 
   const onFilterSubmit = async (searchValues) => {
     localStorage.setItem(searchValuesKey, JSON.stringify(searchValues));
-    await filterMovies(moviesList, searchValues);
+    await filterMovies(cachedMoviesList, searchValues);
   }
 
   const searchFilter = (movie, searchValues) => {

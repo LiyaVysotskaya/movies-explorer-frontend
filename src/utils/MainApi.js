@@ -41,8 +41,6 @@ export default class ApiMain {
       headers: this._headers,
       body: JSON.stringify({
         ...data,
-        image: `${bitApiBaseUrl}${data.image.url}`,
-        thumbnail: `${bitApiBaseUrl}${data.image.formats.thumbnail.url}`,
         movieId: data.id,
       }),
       credentials: 'include'

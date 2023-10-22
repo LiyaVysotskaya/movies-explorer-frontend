@@ -1,7 +1,6 @@
 import React from "react";
 import "./MoviesCard.css";
 import { apiMain } from "../../utils/MainApi";
-import { bitApiBaseUrl } from "../../utils/constants";
 
 function MoviesCard(props) {
   const onButtonClick = () => {
@@ -53,7 +52,7 @@ function MoviesCard(props) {
   return (
     <li className="movies__element">
       <article className="movies__container">
-        <img className="movies__image" alt={props.movie.nameRU} src={`${bitApiBaseUrl}${props.movie.image.url}`} onClick={onCardClick} />
+        <img className="movies__image" alt={props.movie.nameRU} src={props.movie.image} onClick={onCardClick} />
         <button
           className={`movies__button movies__button_${getButtonClass()}`}
           type="button"

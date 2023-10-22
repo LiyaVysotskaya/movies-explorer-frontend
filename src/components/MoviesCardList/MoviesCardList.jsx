@@ -8,8 +8,13 @@ function MoviesCardList(props) {
   const [filteredMoviesList, setFilteredMoviesList] = React.useState([]);
 
   React.useEffect(() => {
-    setFilteredMoviesList([]);
-    sliceMoviesList(0, props.requestParams.default);
+    const currentLength = filteredMoviesList.length;
+    if(currentLength){
+      setFilteredMoviesList([]);
+      sliceMoviesList(0, currentLength);
+    }else{
+      sliceMoviesList(0, props.requestParams.default);
+    }
   }, [props.moviesList]);
 
   const sliceMoviesList = (skip, count) => {
