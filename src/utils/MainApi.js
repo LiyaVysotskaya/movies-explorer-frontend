@@ -120,7 +120,7 @@ export default class ApiMain {
 }
 
 const apiMain = new ApiMain({
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.imredratdiplom.nomoredomainsicu.ru',
   headers: {
     'Content-Type': 'application/json',
   }
