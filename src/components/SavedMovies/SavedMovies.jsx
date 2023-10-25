@@ -70,7 +70,7 @@ function SavedMovies(props) {
     <>
       <Header loggedIn={props.loggedIn} pageName={'saved-movies'} />
       <main className="main main_saved-movies">
-        <SearchForm onSubmit={onFilterSubmit} />
+        <SearchForm onSubmit={onFilterSubmit} isLoading={isLoading} />
         <MoviesCardList
           moviesList={filteredMoviesList}
           requestParams={{

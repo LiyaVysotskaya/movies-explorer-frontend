@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 import Main from '../Main/Main';
@@ -85,8 +85,15 @@ function App() {
               handleLogout={handleLogout}
             />
           } />
-          <Route path="/signup" element={<Register onLoggedIn={handleLogin} />} />
-          <Route path="/signin" element={<Login onLoggedIn={handleLogin} />} />
+
+          <Route path="/signup" element={loggedIn
+            ? <Navigate to='/movies' replace />
+            : <Register onLoggedIn={handleLogin} />} />
+
+          <Route path="/signin" element={loggedIn
+            ? <Navigate to='/movies' replace />
+            : <Login onLoggedIn={handleLogin} />} />
+
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
         }

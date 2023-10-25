@@ -10,6 +10,7 @@ function Login(props) {
   const navigate = useNavigate();
 
   const [requestResultText, setRequestResultText] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const { values, handleChange, errors, resetForm, isValid } = useFormAndValidation({
     email: '',
@@ -18,6 +19,8 @@ function Login(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
+
     if (!values.email || !values.password) {
       return;
     } else {
@@ -33,6 +36,9 @@ function Login(props) {
         .catch((error) => {
           setRequestResultText(error === 'Ошибка: 401' ? 'Вы ввели неправильный логин или пароль.' : 'При авторизации пользователя произошла ошибка.');
           console.log(`Ошибка авторизации ${error}`)
+        })
+        .finally(() => {
+          setIsLoading(false);
         })
     }
   }
@@ -57,6 +63,7 @@ function Login(props) {
           error={errors}
           isValid={isValid}
           requestResultText={requestResultText}
+          isLoading={isLoading}
           buttonText='Войти' />
         <Link className='login__link' to='/signup'>Ещё не зарегистрированы?
           <span className="login__link-text">Регистрация</span>

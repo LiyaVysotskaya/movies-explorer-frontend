@@ -10,6 +10,7 @@ function Register(props) {
   const navigate = useNavigate();
 
   const [requestResultText, setRequestResultText] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const { values, handleChange, errors, isValid } = useFormAndValidation({
     username: '',
@@ -19,6 +20,8 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
+
     apiMain.register(values.username, values.email, values.password)
       .then(() => {
         apiMain.login(values.email, values.password)
@@ -34,6 +37,9 @@ function Register(props) {
       .catch((error) => {
         setRequestResultText(error === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При регистрации пользователя произошла ошибка.');
         console.log(`Ошибка регистрации ${error}`)
+      })
+      .finally(() => {
+        setIsLoading(false);
       })
   }
 
@@ -58,6 +64,7 @@ function Register(props) {
           error={errors}
           isValid={isValid}
           requestResultText={requestResultText}
+          isLoading={isLoading}
           buttonText='Зарегистрироваться' />
         <Link className='register__link' to='/signin'>Уже зарегистрированы?
           <span className="register__link-text">Войти</span>

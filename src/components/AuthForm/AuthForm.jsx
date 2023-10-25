@@ -63,7 +63,7 @@ function AuthForm(props) {
         </span>
         <button
           className='auth__button'
-          type="submit" disabled={!props.isValid}>
+          type="submit" disabled={!props.isValid || props.isLoading}>
           {props.buttonText}
         </button>
       </div>

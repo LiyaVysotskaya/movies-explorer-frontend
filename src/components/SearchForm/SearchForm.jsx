@@ -6,7 +6,7 @@ function SearchForm(props) {
   const [searchValues, setSearchValues] = React.useState({ search: '', isShort: false });
 
   React.useEffect(() => {
-    if(props.initialValues){
+    if (props.initialValues) {
       setSearchValues(props.initialValues);
     }
   }, [props.initialValues])
@@ -40,7 +40,7 @@ function SearchForm(props) {
             placeholder="Фильм"
             required
           />
-          <button className="search__button" type="submit">Найти</button>
+          <button className="search__button" type="submit" disabled={props.isLoading} >Найти</button>
           <FilterCheckbox isChecked={searchValues.isShort} onChange={onFilterChange} />
         </form>
       </div>

@@ -11,6 +11,7 @@ function Profile(props) {
 
   const [isDataChanged, setIsDataChanged] = React.useState(false);
   const [requestResultText, setRequestResultText] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const { values, handleChange, errors, setValues, isValid } = useFormAndValidation({
     username: '',
@@ -28,6 +29,7 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
 
     apiMain.editProfileInfo(values)
       .then((res) => {
@@ -37,7 +39,10 @@ function Profile(props) {
       .catch((error) => {
         setRequestResultText(error === 'Ошибка: 409' ? 'Пользователь с таким email уже существует.' : 'При обновлении профиля произошла ошибка.');
         console.error(error)
-      });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
 
     setIsDataChanged(false);
   }
@@ -96,7 +101,7 @@ function Profile(props) {
             <button
               className='profile__button'
               type="submit"
-              disabled={!isValid || !isDataChanged}>
+              disabled={!isValid || !isDataChanged || (currentUser.name === values.username && currentUser.email === values.email) || isLoading}>
               Редактировать
             </button>
             <button className="profile__button profile__button_logout" type="button" onClick={props.handleLogout}>Выйти из аккаунта</button>

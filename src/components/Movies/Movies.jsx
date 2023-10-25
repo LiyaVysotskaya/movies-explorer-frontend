@@ -64,7 +64,7 @@ function Movies(props) {
 
   const getMovies = async () => {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       setRequestError(null);
       const moviesList = await apiMovies.getMoviesArray();
       const savedMoviesList = await apiMain.getSavedMovies();
@@ -82,7 +82,7 @@ function Movies(props) {
       setRequestError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
       return [];
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
@@ -121,7 +121,7 @@ function Movies(props) {
     <>
       <Header loggedIn={props.loggedIn} pageName={'movies'} />
       <main className="main main_movies">
-        <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} />
+        <SearchForm initialValues={initialSearchValues} onSubmit={onFilterSubmit} isLoading={isLoading} />
         <MoviesCardList
           moviesList={filteredMoviesList}
           requestParams={getRequestParams()}
