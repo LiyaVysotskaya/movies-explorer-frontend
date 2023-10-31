@@ -21,7 +21,7 @@ function Portfolio() {
             <button className="portfolio__button" type="button"></button>
           </li>
           <li className="portfolio__element">
-            <Link className="portfolio__link" to='https://liyavysotskaya.github.io/mesto/' target="blank">
+            <Link className="portfolio__link" to='https://imredrat.nomoredomainsicu.ru' target="blank">
               Одностраничное приложение
             </Link>
             <button className="portfolio__button" type="button"></button>

@@ -23,6 +23,7 @@
 
 .auth__label {
   display: flex;
+  height: 100%;
   flex-direction: column;
 }
 
@@ -77,17 +78,51 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .auth__input-error_active {
   visibility: visible;
 }
 
+.auth__basement {
+  width: fit-content;
+  margin-top: 47px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth__basement_login {
+  margin-top: 139px;
+}
+  @media screen and (max-width: 767px) {
+    .auth__button_login {
+      margin-top: 227px;
+    }
+  }
+
+.auth__error {
+  height: 12px;
+  margin: 0;
+  color: #FF4062;
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: hidden;
+}
+
+.auth__error_active {
+  visibility: visible;
+}
+
 .auth__button {
   width: 396px;
   height: 45px;
-  margin: 69px 0 16px;
+  margin: 10px 0 16px;
   padding: 0;
   align-self: center;
   justify-content: space-around;
@@ -103,6 +138,16 @@
   border-radius: 3px;
   transition: opacity .4s;
 }
+  .auth__button:disabled {
+    background-color: #ffffff;
+    color: #000000;
+    opacity: 0.3;
+    border: 1px solid #000000;
+  }
+  .auth__button:disabled:hover {
+    opacity: 0.3;
+    cursor: default;
+  }
   .auth__button:hover {
     opacity: 0.8;
     cursor: pointer;
@@ -112,14 +157,5 @@
       width: 260px;
       margin: 157px 0 14px;
       font-size: 12px;
-    }
-  }
-
-.auth__button_login {
-  margin-top: 159px;
-}
-  @media screen and (max-width: 767px) {
-    .auth__button_login {
-      margin-top: 247px;
     }
   }

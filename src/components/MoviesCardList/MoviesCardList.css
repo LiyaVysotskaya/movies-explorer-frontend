@@ -19,6 +19,18 @@
     }
   }
 
+.movies__text {
+  margin: 0 auto;
+  padding: 0;
+  color: #000;
+  text-align: center;
+  font-family: inherit;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 .movies__list {
   width: 100%;
   margin: 0;
